@@ -8,22 +8,22 @@ ENV PGROUTING_SHA256 5cf4d2147cf0897b5e2de9f1b526339abf293226c411882dba4901ba049
 RUN set -ex \
  && apt update \
  && apt install -y \
-        libboost-atomic1.67.0 \
-        libboost-chrono1.67.0 \
-        libboost-graph1.67.0 \
-        libboost-date-time1.67.0 \
-        libboost-program-options1.67.0 \
-        libboost-system1.67.0 \
-        libboost-thread1.67.0 \
+        libboost-atomic1.74.0 \
+        libboost-chrono1.74.0 \
+        libboost-graph1.74.0 \
+        libboost-date-time1.74.0 \
+        libboost-program-options1.74.0 \
+        libboost-system1.74.0 \
+        libboost-thread1.74.0 \
         libcgal13 \
  && apt install -y \
         build-essential \
         cmake \
         wget \
-        libboost-graph-dev \
+        libboost-graph1.74-dev \
         libcgal-dev \
         libpq-dev \
-        postgresql-server-dev-${PG_MAJOR} \
+        postgresql-server-dev-13 \
  && wget -O pgrouting.tar.gz "https://github.com/pgRouting/pgrouting/archive/v${PGROUTING_VERSION}.tar.gz" \
  && echo "$PGROUTING_SHA256 *pgrouting.tar.gz" | sha256sum -c - \
  && mkdir -p /usr/src/pgrouting \
@@ -48,14 +48,14 @@ RUN set -ex \
         wget \
         libcgal-dev \
         libpq-dev \
-        libboost-graph-dev \
-        postgresql-server-dev-${PG_MAJOR} \
+        libboost-graph1.74-dev \
+        postgresql-server-dev-13 \
  && rm -rf /var/lib/apt/lists/*
 RUN rm /docker-entrypoint-initdb.d/10_postgis.sh
 
 FROM pgrouting/pgrouting:13-3.1-3.2.0
 
-ENV OSM2PGROUTING_VERSION 2.3.7
+ENV OSM2PGROUTING_VERSION 2.3.8
 
 RUN apt update \
  && apt install -y \
