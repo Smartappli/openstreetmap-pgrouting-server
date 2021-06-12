@@ -97,3 +97,10 @@ RUN apt update \
         zlib1g-dev \
  && apt autoremove -y \
  && rm -rf /var/lib/apt/lists/*
+ 
+ # Start running
+COPY run.sh /
+ENTRYPOINT ["/run.sh"]
+CMD []
+
+EXPOSE 5432
