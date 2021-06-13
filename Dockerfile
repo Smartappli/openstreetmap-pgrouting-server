@@ -19,6 +19,7 @@ RUN set -ex \
         libboost-system1.74.0 \
         libboost-thread1.74.0 \
         libcgal13 \
+        python3-sphinx \
  && apt install -y \
         build-essential \
         cmake \
@@ -39,7 +40,7 @@ RUN set -ex \
  && cd /usr/src/pgrouting \
  && mkdir build \
  && cd build \
- && cmake .. \
+ && cmake -DWITH_DOC=ON .. \
  && make \
  && make install \
  && cd / \
