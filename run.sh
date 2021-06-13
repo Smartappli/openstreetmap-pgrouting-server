@@ -33,13 +33,13 @@ if [ "$1" = "import" ]; then
     sudo -u postgres createuser rounting
     sudo -u postgres createdb -E UTF8 -O routing cars_routing
     sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION postgis;"
-    sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION pgrouting;"
+    sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION pgrouting CASCADE;"
     sudo -u postgres createdb -E UTF8 -O routing bicycles_routing
     sudo -u postgres psql -d bicycles_routing -c "CREATE EXTENSION postgis;"
-    sudo -u postgres psql -d bicycles_routing -c "CREATE EXTENSION pgrouting;"
+    sudo -u postgres psql -d bicycles_routing -c "CREATE EXTENSION pgrouting CASCADE;"
     sudo -u postgres createdb -E UTF8 -O routing pedestrian_routing
     sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION postgis;"
-    sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION pgrouting;" 
+    sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION pgrouting CASCADE;" 
     setPostgresPassword
     
     # Download Luxembourg as sample if no data is provided
