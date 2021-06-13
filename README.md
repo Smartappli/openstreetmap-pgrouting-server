@@ -1,6 +1,6 @@
 # openstreetmap-pgrouting
 
-This container allows you to easily set up an OpenStreetMap PG Routing server given a `.osm.pbf` file. 
+This container is widely impired of works of https://github.com/Overv/openstreetmap-tile-server. It allows you to easily set up an OpenStreetMap PG Routing server given a `.osm.pbf` file. 
 
 ## Setting up the server
 
