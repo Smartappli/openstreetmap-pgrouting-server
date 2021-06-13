@@ -1,0 +1,28 @@
+os: linux
+language: minimal
+services:
+- docker
+# DOCKER_USERNAME/DOCKER_PASSWORD have been configured in Travis CI
+# env:
+before_install:
+- echo "Before install"
+before_script:
+- docker pull smartppli/openstreetmap-pgrouting-server || true
+script:
+- docker build --pull --cache-from smartappli/openstreetmap-pgrouting-server --tag smartappli/openstreetmap-pgrouting-server .
+- docker volume create openstreetmap-data
+- docker run --rm -v openstreetmap-data:/var/lib/postgresql/13/main smartappli/openstreetmap-pgrouting-server import
+- docker run --rm -v openstreetmap-data:/var/lib/postgresql/13/main -p 8080:80 -d smartappli/openstreetmap-pgrouting-server run
+- sleep 30
+- make DOCKER_IMAGE=smartappli/openstreetmap-pgrouting-server stop
+after_script:
+- docker images
+after_success:
+- if [[ "$TRAVIS_BRANCH" == "master" ]];
+  then
+  docker images ;
+  echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin ;
+  docker push smartappli/openstreetmap-pgrouting-server ;
+  fi
+notifications:
+  email: true
