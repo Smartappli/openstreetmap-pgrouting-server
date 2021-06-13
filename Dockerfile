@@ -1,9 +1,11 @@
 FROM postgis/postgis:13-3.1
 
-LABEL maintainer="pgRouting Project - https://pgrouting.net"
-
+# Set up environment
+ENV TZ=UTC
 ENV PGROUTING_VERSION 3.2.0
 ENV PGROUTING_SHA256 5cf4d2147cf0897b5e2de9f1b526339abf293226c411882dba4901ba049092ab
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN set -ex \
  && apt update \
