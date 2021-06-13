@@ -54,10 +54,11 @@ if [ "$1" = "import" ]; then
     fi
     
     # Import data
-    sudo -u routing osm2pgrouting --f data.osm.pbf --conf mapconfig.xml  --dbname routing --clean    
-    sudo -u routing osm2pgrouting --f data.osm.pbf --conf mapconfig_for_bicycles.xml  --dbname bicycles_routing --clean
-    sudo -u routing osm2pgrouting --f data.osm.pbf --conf mapconfig_for_cars.xml --dbname cars_routing --clean
-    sudo -u routing osm2pgrouting --f data.osm.pbf --conf mapconfig_for_pedestrian.xml  --dbname pedestrian_routing --clean
+    sudo -u routing osmconvert data.osm.pbf --drop-author --drop-version --out-pbf -o=output_data_reduc.osm.pbf
+    sudo -u routing osm2pgrouting --f output_data_reduc.osm.pbf --conf mapconfig.xml  --dbname routing --clean    
+    sudo -u routing osm2pgrouting --f output_data_reduc.osm.pbf --conf mapconfig_for_bicycles.xml  --dbname bicycles_routing --clean
+    sudo -u routing osm2pgrouting --f output_data_reduc.osm.pbf --conf mapconfig_for_cars.xml --dbname cars_routing --clean
+    sudo -u routing osm2pgrouting --f output_data_reduc.osm.pbf --conf mapconfig_for_pedestrian.xml  --dbname pedestrian_routing --clean
 fi
 
 if [ "$1" = "run" ]; then
