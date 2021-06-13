@@ -1,5 +1,27 @@
 # openstreetmap-pgrouting
 
+This container allows you to easily set up an OpenStreetMap PG Routing server given a `.osm.pbf` file. 
+
+## Setting up the server
+
+First create a Docker volume to hold the PostgreSQL database that will contain the OpenStreetMap data:
+
+    docker volume create openstreetmap-data
+
+Next, download an .osm.pbf extract from geofabrik.de for the region that you're interested in. You can then start importing it into PostgreSQL by running a container and mounting the file as `/data.osm.pbf`. For example:
+
+```
+docker run \
+    -v /absolute/path/to/belgium.osm.pbf:/data.osm.pbf \
+    -v openstreetmap-data:/var/lib/postgresql/13/main \
+    smartappli/openstreetmap-pgrouting-server \
+    import
+```
+
+If the container exits without errors, then your data has been successfully imported and you are now ready to run the pgrouting server.
+
+
+
 ## Complement
 
 openstreetmap-tile-server is available at https://github.com/Overv/openstreetmap-tile-server
