@@ -59,3 +59,21 @@ if [ "$1" = "import" ]; then
     sudo -u routing osm2pgrouting --f data.osm.pbf --conf mapconfig_for_cars.xml --dbname cars_routing --clean
     sudo -u routing osm2pgrouting --f data.osm.pbf --conf mapconfig_for_pedestrian.xml  --dbname pedestrian_routing --clean
 fi
+
+if [ "$1" = "run" ]; then
+    # Clean /tmp
+    rm -rf /tmp/*
+
+    # Fix postgres data privileges
+    chown postgres:postgres /var/lib/postgresql -R
+
+    # Initialize PostgreSQL
+    createPostgresConfig
+    service postgresql start
+    setPostgresPassword
+
+    exit 0
+fi
+
+echo "invalid command"
+exit 1
