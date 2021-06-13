@@ -9,6 +9,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN set -ex \
  && apt update \
+ && apt -y dist-upgrade
  && apt install -y \
         libboost-atomic1.74.0 \
         libboost-chrono1.74.0 \
