@@ -20,7 +20,16 @@ docker run \
 
 If the container exits without errors, then your data has been successfully imported and you are now ready to run the pgrouting server.
 
+## Running the server
 
+Run the server like this:
+
+```
+docker run \
+    -v openstreetmap-data:/var/lib/postgresql/13/main \
+    -d overv/openstreetmap-tile-server \
+    run
+```
 
 ## Complement
 
