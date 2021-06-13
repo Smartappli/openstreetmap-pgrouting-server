@@ -12,6 +12,7 @@ Next, download an .osm.pbf extract from geofabrik.de for the region that you're 
 
 ```
 docker run \
+    -e AUTOVACUUM=off \
     -v /absolute/path/to/belgium.osm.pbf:/data.osm.pbf \
     -v openstreetmap-data:/var/lib/postgresql/13/main \
     smartappli/openstreetmap-pgrouting-server \
@@ -26,8 +27,9 @@ Run the server like this:
 
 ```
 docker run \
+    -e AUTOVACUUM=on \
     -v openstreetmap-data:/var/lib/postgresql/13/main \
-    -d overv/openstreetmap-tile-server \
+    -d smartappli/openstreetmap-pgrouting-server \
     run
 ```
 
