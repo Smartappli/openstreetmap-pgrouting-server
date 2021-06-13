@@ -71,6 +71,14 @@ if [ "$1" = "run" ]; then
     createPostgresConfig
     service postgresql start
     setPostgresPassword
+    
+    # Run while handling docker stop's SIGTERM
+    stop_handler() {
+        kill -TERM "$child"
+    }
+    trap stop_handler SIGTERM
+
+    service postgresql stop
 
     exit 0
 fi
