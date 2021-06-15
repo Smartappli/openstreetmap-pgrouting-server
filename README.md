@@ -38,6 +38,19 @@ docker run \
     run
 ```
 
+## Running the server at same time of openstreetmap-tile-server
+
+Run the server like this:
+
+```
+docker run \
+    -p 5433:5432 \
+    -e AUTOVACUUM=on \
+    -v openstreetmap-data:/var/lib/postgresql/13/main \
+    -d smartappli/openstreetmap-pgrouting-server \
+    run
+```
+
 ## Complement
 
 openstreetmap-tile-server is available at https://github.com/Overv/openstreetmap-tile-server
