@@ -21,7 +21,7 @@ docker run \
 
 If the container exits without errors, then your data has been successfully imported and you are now ready to run the pgrouting server.
 
-## Upgrde from a previous version
+## Upgrade from a previous version
 
 chmod +x upgrade.sh
 sh upgrade.sh
