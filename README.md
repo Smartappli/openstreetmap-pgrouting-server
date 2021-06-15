@@ -1,4 +1,4 @@
-# openstreetmap-pgrouting
+# Openstreetmap-pgrouting
 
 This container is widely impired of works of https://github.com/Overv/openstreetmap-tile-server. It allows you to easily set up an OpenStreetMap PG Routing server given a `.osm.pbf` file. 
 
@@ -21,10 +21,15 @@ docker run \
 
 If the container exits without errors, then your data has been successfully imported and you are now ready to run the pgrouting server.
 
-## Upgrade from a previous version
+## Upgrade from postgresql 12 to postgresql 13
 
-chmod +x upgrade.sh
-sh upgrade.sh
+chmod +x upgrade12-13.sh
+sh upgrade12-13.sh
+
+## Upgrade from postgresql 13 to postgresql 14
+
+chmod +x upgrade13-14.sh
+sh upgrade13-14.sh
 
 ## Running the server
 
