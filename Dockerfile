@@ -104,6 +104,7 @@ RUN apt update \
  && rm -rf /var/lib/apt/lists/*
  
  # Start running
+COPY indexes.sql /
 COPY run.sh /
 ENTRYPOINT ["/run.sh"]
 CMD []
