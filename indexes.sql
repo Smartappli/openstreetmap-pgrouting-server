@@ -1,6 +1,8 @@
 -- Calculate topology
 ALTER TABLE ways ADD COLUMN "source" integer;
 ALTER TABLE ways ADD COLUMN "target" integer;
+CREATE INDEX source_idx ON ways("source");
+CREATE INDEX target_idx ON ways("target");
 
 -- Run topology function
 SELECT assign_vertex_id('ways', 0.00001, 'the_geom', 'gid');
