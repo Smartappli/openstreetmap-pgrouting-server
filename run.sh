@@ -9,7 +9,7 @@ function createPostgresConfig() {
 }
 
 function setPostgresPassword() {
-    sudo -u postgres psql -c "ALTER USER renderer PASSWORD '${PGPASSWORD:-renderer}'"
+    sudo -u postgres psql -c "ALTER USER routing PASSWORD '${PGPASSWORD:-routing}'"
 }
 
 if [ "$#" -ne 1 ]; then
@@ -30,7 +30,7 @@ if [ "$1" = "import" ]; then
     # Initialize PostgreSQL
     createPostgresConfig
     service postgresql start
-    sudo -u postgres createuser rounting
+    sudo -u postgres createuser routing
     sudo -u postgres createdb -E UTF8 -O routing cars_routing
     sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION postgis;"
     sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION pgrouting CASCADE;"
@@ -45,7 +45,7 @@ if [ "$1" = "import" ]; then
     # Download Luxembourg as sample if no data is provided
     if [ ! -f /data.osm.pbf ] && [ -z "$DOWNLOAD_PBF" ]; then
         echo "WARNING: No import file at /data.osm.pbf, so importing Luxembourg as example..."
-        DOWNLOAD_PBF="https://download.geofabrik.de/europe/belgium-latest.osm.pbf"
+        DOWNLOAD_PBF="https://download.geofabrik.de/europe/luxembourg-latest.osm.pbf"
     fi
 
     if [ -n "$DOWNLOAD_PBF" ]; then
