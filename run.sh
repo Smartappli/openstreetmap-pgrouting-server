@@ -31,6 +31,9 @@ if [ "$1" = "import" ]; then
     createPostgresConfig
     service postgresql start
     sudo -u postgres createuser routing
+    sudo -u postgres createdb -E UTF8 -O routing routing
+    sudo -u postgres psql -d routing -c "CREATE EXTENSION postgis;"
+    sudo -u postgres psql -d routing -c "CREATE EXTENSION pgrouting CASCADE;"
     sudo -u postgres createdb -E UTF8 -O routing cars_routing
     sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION postgis;"
     sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION pgrouting CASCADE;"
@@ -55,6 +58,7 @@ if [ "$1" = "import" ]; then
     
     # Import data
     sudo -u routing osmconvert data.osm.pbf --drop-author --drop-version --out-pbf -o=output_data_reduc.osm.pbf
+    rm data.osm.pbf
     sudo -u routing osm2pgrouting --f output_data_reduc.osm.pbf --conf mapconfig.xml  --dbname routing --clean    
     sudo -u routing osm2pgrouting --f output_data_reduc.osm.pbf --conf mapconfig_for_bicycles.xml  --dbname bicycles_routing --clean
     sudo -u routing osm2pgrouting --f output_data_reduc.osm.pbf --conf mapconfig_for_cars.xml --dbname cars_routing --clean
