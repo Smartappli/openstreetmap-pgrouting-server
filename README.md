@@ -36,11 +36,7 @@ sh upgrade13-14.sh
 Run the server like this:
 
 ```
-docker run \
-    -e AUTOVACUUM=on \
-    -v openstreetmap-data:/var/lib/postgresql/13/main \
-    -d smartappli/openstreetmap-pgrouting-server \
-    run
+docker run -e AUTOVACUUM=on -v openstreetmap-data:/var/lib/postgresql/13/main -d smartappli/openstreetmap-pgrouting-server run
 ```
 
 ## Running the server at same time of openstreetmap-tile-server
@@ -58,7 +54,7 @@ docker run \
 
 ## Complement
 
-openstreetmap-tile-server is available at https://github.com/Overv/openstreetmap-tile-server
+openstreetmap-tile-server is available at https://github.com/smartappli/openstreetmap-tile-server
 
 ## License
 
