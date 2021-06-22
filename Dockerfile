@@ -109,8 +109,9 @@ RUN apt update \
         libexpat-dev \
         libosmium2-dev \
         libpqxx-dev \
-        zlib1g-dev \
- && cd /usr/local/src \
+        zlib1g-dev 
+        
+RUN cd /usr/local/src \
  && wget https://github.com/pgRouting/osm2pgrouting/archive/v${OSM2PGROUTING_VERSION}.tar.gz \
  && tar xvf v${OSM2PGROUTING_VERSION}.tar.gz \
  && cd osm2pgrouting-${OSM2PGROUTING_VERSION} \
