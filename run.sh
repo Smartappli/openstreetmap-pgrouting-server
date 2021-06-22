@@ -65,10 +65,10 @@ if [ "$1" = "import" ]; then
     sudo -u pgr osm2pgrouting --f output_data_reduc.osm.pbf --conf mapconfig_for_pedestrian.xml  --dbname pedestrian_routing --clean
     
     # Create indexes
-    sudo -u postgres psql -d routing -f indexes.sql
-    sudo -u postgres psql -d bicycles_routing -f indexes.sql
-    sudo -u postgres psql -d cars_routing -f indexes.sql
-    sudo -u postgres psql -d pedestrian_routing -f indexes.sql
+    #sudo -u postgres psql -d routing -f indexes.sql
+    #sudo -u postgres psql -d bicycles_routing -f indexes.sql
+    #sudo -u postgres psql -d cars_routing -f indexes.sql
+    #sudo -u postgres psql -d pedestrian_routing -f indexes.sql
 fi
 
 if [ "$1" = "run" ]; then
