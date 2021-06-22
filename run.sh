@@ -9,7 +9,7 @@ function createPostgresConfig() {
 }
 
 function setPostgresPassword() {
-    sudo -u postgres psql -c "ALTER USER routing PASSWORD '${PGPASSWORD:-routing}'"
+    sudo -u postgres psql -c "ALTER USER pgr PASSWORD '${PGPASSWORD:-pgr}'"
 }
 
 if [ "$#" -ne 1 ]; then
