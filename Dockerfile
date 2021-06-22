@@ -1,20 +1,17 @@
 FROM ubuntu:21.04
 
-ENV OSM2PGROUTING_VERSION 2.3.8
-
 # Set up environment
 ENV TZ=UTC
 ENV AUTOVACUUM=off
-ENV UPDATES=disabled
+ENV OSM2PGROUTING_VERSION 2.3.8
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Install dependencies
-RUN apt-get update \
-  && apt-get -y dist-upgrade \
-  && apt-get install -y wget gnupg2 lsb-core apt-transport-https ca-certificates curl \
+RUN apt-get install -y wget gnupg2 lsb-core apt-transport-https ca-certificates curl \
   && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
   && echo "deb [ trusted=yes ] https://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list \
-  && apt-get update 
+  && apt-get update \
+  && apt-get -y dist-upgrade 
   
 RUN apt-get install -y --no-install-recommends \
   autoconf \
@@ -70,7 +67,6 @@ RUN apt-get install -y --no-install-recommends \
   tar \
   ttf-unifont \
   unzip \
-  wget \
   zlib1g-dev \
 && apt-get clean autoclean \
 && apt-get autoremove --yes \
@@ -128,7 +124,7 @@ RUN cd /usr/local/src \
 # Start running
 COPY run.sh /
 COPY indexes.sql /
-ENTRYPOINT []
+ENTRYPOINT ["/run.sh"]
 CMD []
 
 EXPOSE 5432
