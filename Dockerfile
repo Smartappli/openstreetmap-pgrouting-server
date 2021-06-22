@@ -66,7 +66,6 @@ RUN apt-get install -y --no-install-recommends \
   tar \
   ttf-unifont \
   unzip \
-  varnish \
   wget \
   zlib1g-dev \
 && apt-get clean autoclean \
@@ -88,12 +87,8 @@ RUN wget https://download.osgeo.org/postgis/source/postgis-3.1.2.tar.gz -O postg
  && make -j $(nproc) install \
  && cd .. && rm -rf postgis_src
 
-# Set up renderer user
+# Set up routing user
 RUN adduser --disabled-password --gecos "" routing
-
-# Configure Varnish
-RUN rm /etc/varnish/default.vcl 
-COPY default.vcl /etc/varnish/default.vcl
 
 # Configure PosgtreSQL
 COPY postgresql.custom.conf.tmpl /etc/postgresql/13/main/
