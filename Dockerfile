@@ -131,7 +131,7 @@ RUN cd /usr/local/src \
 # Start running
 COPY run.sh /
 COPY indexes.sql /
-ENTRYPOINT ["/run.sh"]
+ENTRYPOINT []
 CMD []
 
 EXPOSE 5432
