@@ -118,6 +118,7 @@ RUN cd /usr/local/src \
  
 # Start running
 COPY run.sh /
+RUN chmod +x /run.sh
 COPY indexes.sql /
 ENTRYPOINT ["/run.sh"]
 CMD []
