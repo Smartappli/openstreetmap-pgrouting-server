@@ -128,9 +128,9 @@ RUN cd /usr/local/src \
  && apt autoremove -y \
  && rm -rf /var/lib/apt/lists/*
  
- # Start running
-COPY indexes.sql /
+# Start running
 COPY run.sh /
+COPY indexes.sql /
 ENTRYPOINT ["/run.sh"]
 CMD []
 
