@@ -4,14 +4,15 @@ FROM ubuntu:21.04
 ENV TZ=UTC
 ENV AUTOVACUUM=off
 ENV OSM2PGROUTING_VERSION 2.3.8
+ENV POSTGIS 3.1.2
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Install dependencies
-RUN apt-get install -y wget gnupg2 lsb-core apt-transport-https ca-certificates curl \
+RUN apt-get update \
+  && apt-get -y dist-upgrade \
+  && apt-get install -y wget gnupg2 lsb-core apt-transport-https ca-certificates curl \
   && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
-  && echo "deb [ trusted=yes ] https://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list \
-  && apt-get update \
-  && apt-get -y dist-upgrade 
+  && echo "deb [ trusted=yes ] https://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list \  && apt-get update 
   
 RUN apt-get install -y --no-install-recommends \
   autoconf \
@@ -73,7 +74,7 @@ RUN apt-get install -y --no-install-recommends \
 && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 # Set up PostGIS
-RUN wget https://download.osgeo.org/postgis/source/postgis-3.1.2.tar.gz -O postgis.tar.gz \
+RUN wget https://download.osgeo.org/postgis/source/postgis-${OSM2PGROUTING_VERSION}.tar.gz -O postgis.tar.gz \
  && mkdir -p postgis_src \
  && tar -xvzf postgis.tar.gz --strip 1 -C postgis_src \
  && rm postgis.tar.gz \
