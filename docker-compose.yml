@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  map:
+    image: smartappli/openstreetmap-pgrouting+server
+    volumes:
+      - openstreetmap-datapgr:/var/lib/postgresql/13/main
+    ports:
+      - "5433:5432"
+    command: "run"
+
+volumes:
+  openstreetmap-datapgr:
+    external: true
