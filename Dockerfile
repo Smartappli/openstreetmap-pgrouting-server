@@ -4,7 +4,7 @@ FROM ubuntu:21.04
 ENV TZ=UTC
 ENV AUTOVACUUM=off
 ENV OSM2PGROUTING_VERSION 2.3.8
-ENV POSTGIS 3.1.2
+ENV POSTGIS_VERSION 3.1.2
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Install dependencies
@@ -74,7 +74,7 @@ RUN apt-get install -y --no-install-recommends \
 && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 # Set up PostGIS
-RUN wget https://download.osgeo.org/postgis/source/postgis-${OSM2PGROUTING_VERSION}.tar.gz -O postgis.tar.gz \
+RUN wget https://download.osgeo.org/postgis/source/postgis-${POSTGIS_VERSION}.tar.gz -O postgis.tar.gz \
  && mkdir -p postgis_src \
  && tar -xvzf postgis.tar.gz --strip 1 -C postgis_src \
  && rm postgis.tar.gz \
