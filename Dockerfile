@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:21.04
 
 ENV OSM2PGROUTING_VERSION 2.3.8
 
@@ -28,12 +28,14 @@ RUN apt-get install -y --no-install-recommends \
   libagg-dev \
   libboost-dev \
   libboost-filesystem-dev \
+  libboost-program-options-dev \
   libboost-system-dev \
   libbrotli-dev \
   libbz2-dev \
   libcairo2-dev \
   libcairomm-1.0-dev \
   libcurl4-gnutls-dev \
+  libexpat-dev \
   libexpat1-dev \
   libfreetype6-dev \
   libgdal-dev \
@@ -41,7 +43,10 @@ RUN apt-get install -y --no-install-recommends \
   libgeos-dev \
   libicu-dev \
   libiniparser-dev \
+  libosmium2-dev \
   libpq-dev \
+  libpqxx-6.2 \
+  libpqxx-dev \
   libproj-dev \
   libprotobuf-c-dev \
   libtiff5-dev \
@@ -95,16 +100,7 @@ RUN chown -R postgres:postgres /var/lib/postgresql \
  && chown postgres:postgres /etc/postgresql/13/main/postgresql.custom.conf.tmpl \
  && echo "host all all 0.0.0.0/0 md5" >> /etc/postgresql/13/main/pg_hba.conf \
  && echo "host all all ::/0 md5" >> /etc/postgresql/13/main/pg_hba.conf
-
-RUN apt install -y libpqxx-6.2 \
- && apt install -y build-essential \
-        libboost-program-options-dev \
-        libexpat1 \
-        libexpat-dev \
-        libosmium2-dev \
-        libpqxx-dev \
-        zlib1g-dev 
-        
+     
 RUN cd /usr/local/src \
  && wget https://github.com/pgRouting/osm2pgrouting/archive/v${OSM2PGROUTING_VERSION}.tar.gz \
  && tar xvf v${OSM2PGROUTING_VERSION}.tar.gz \
