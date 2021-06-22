@@ -22,7 +22,6 @@ RUN apt-get install -y --no-install-recommends \
   bzip2 \
   cmake \
   cron \
-  g++ \
   gcc \
   gdal-bin \
   git-core \
@@ -97,13 +96,8 @@ RUN chown -R postgres:postgres /var/lib/postgresql \
  && echo "host all all 0.0.0.0/0 md5" >> /etc/postgresql/13/main/pg_hba.conf \
  && echo "host all all ::/0 md5" >> /etc/postgresql/13/main/pg_hba.conf
 
-RUN apt update \
- && apt install -y \
-        libpqxx-6.2 \
- && apt install -y \
-        build-essential \
-        cmake \
-        wget \
+RUN apt install -y libpqxx-6.2 \
+ && apt install -y build-essential \
         libboost-program-options-dev \
         libexpat1 \
         libexpat-dev \
