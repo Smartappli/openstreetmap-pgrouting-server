@@ -32,8 +32,6 @@ RUN apt-get install -y --no-install-recommends \
   libboost-system-dev \
   libbrotli-dev \
   libbz2-dev \
-  libcairo2-dev \
-  libcairomm-1.0-dev \
   libcurl4-gnutls-dev \
   libexpat-dev \
   libexpat1-dev \
@@ -52,15 +50,10 @@ RUN apt-get install -y --no-install-recommends \
   libtool \
   libxml2-dev \
   make \
-  osmium-tool \
-  osmosis \
-  pandoc \
-  postgis \
   postgresql-${POSTGRESQL_VERSION} \
   postgresql-contrib-${POSTGRESQL_VERSION} \
   postgresql-server-dev-${POSTGRESQL_VERSION} \
   protobuf-c-compiler \
-  python3-mapnik \
   python3-lxml \
   python3-psycopg2 \
   python3-shapely \
