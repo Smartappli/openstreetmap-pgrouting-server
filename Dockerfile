@@ -76,10 +76,6 @@ RUN apt-get install -y --no-install-recommends \
 && apt-get autoremove --yes \
 && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
-# Install python libraries
-RUN pip3 install requests \ 
- && pip3 install pyyaml
-
 # Set up PostGIS
 RUN wget https://download.osgeo.org/postgis/source/postgis-3.1.2.tar.gz -O postgis.tar.gz \
  && mkdir -p postgis_src \
