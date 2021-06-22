@@ -5,6 +5,7 @@ ENV TZ=UTC
 ENV AUTOVACUUM=off
 ENV OSM2PGROUTING_VERSION 2.3.8
 ENV POSTGIS_VERSION 3.1.2
+ENV POSTGRESQL_VERSION 13
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Install dependencies
@@ -55,9 +56,9 @@ RUN apt-get install -y --no-install-recommends \
   osmosis \
   pandoc \
   postgis \
-  postgresql-13 \
-  postgresql-contrib-13 \
-  postgresql-server-dev-13 \
+  postgresql-${POSTGRESQL_VERSION} \
+  postgresql-contrib-${POSTGRESQL_VERSION} \
+  postgresql-server-dev-${POSTGRESQL_VERSION} \
   protobuf-c-compiler \
   python3-mapnik \
   python3-lxml \
@@ -90,9 +91,9 @@ RUN adduser --disabled-password --gecos "" routing
 # Configure PosgtreSQL
 COPY postgresql.custom.conf.tmpl /etc/postgresql/13/main/
 RUN chown -R postgres:postgres /var/lib/postgresql \
- && chown postgres:postgres /etc/postgresql/13/main/postgresql.custom.conf.tmpl \
- && echo "host all all 0.0.0.0/0 md5" >> /etc/postgresql/13/main/pg_hba.conf \
- && echo "host all all ::/0 md5" >> /etc/postgresql/13/main/pg_hba.conf
+ && chown postgres:postgres /etc/postgresql/${POSTGRESQL_VERSION}/main/postgresql.custom.conf.tmpl \
+ && echo "host all all 0.0.0.0/0 md5" >> /etc/postgresql/${POSTGRESQL_VERSION}/main/pg_hba.conf \
+ && echo "host all all ::/0 md5" >> /etc/postgresql/${POSTGRESQL_VERSION}/main/pg_hba.conf
      
 RUN cd /usr/local/src \
  && wget https://github.com/pgRouting/osm2pgrouting/archive/v${OSM2PGROUTING_VERSION}.tar.gz \
