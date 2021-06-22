@@ -45,7 +45,6 @@ RUN apt-get install -y --no-install-recommends \
   libiniparser-dev \
   libosmium2-dev \
   libpq-dev \
-  libpqxx-6.2 \
   libpqxx-dev \
   libproj-dev \
   libprotobuf-c-dev \
