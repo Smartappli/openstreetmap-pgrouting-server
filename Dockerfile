@@ -22,6 +22,7 @@ RUN apt-get install -y --no-install-recommends \
   bzip2 \
   cmake \
   cron \
+  g++ \
   gcc \
   gdal-bin \
   git-core \
