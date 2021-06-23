@@ -91,9 +91,7 @@ RUN chown -R postgres:postgres /var/lib/postgresql \
  && echo "host all all ::/0 md5" >> /etc/postgresql/${POSTGRESQL_VERSION}/main/pg_hba.conf
 
 #pgrouting
-RUN set -ex \
- && apt update \
- && apt install -y \
+RUN apt install -y \
         libboost-atomic \
         libboost-chrono \
         libboost-graph \
@@ -101,11 +99,7 @@ RUN set -ex \
         libboost-program-options \
         libboost-system \
         libboost-thread \
-        libcgal13 \
- && apt install -y \
-        build-essential \
-        cmake \
-        wget \
+        libcgal-dev \
         libboost-graph-dev \
         libcgal-dev \
         libpq-dev \
