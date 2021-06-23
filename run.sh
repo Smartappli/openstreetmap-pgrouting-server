@@ -58,16 +58,18 @@ if [ "$1" = "import" ]; then
     
     # Import data
     sudo -u routing osmconvert /data.osm.pbf --drop-author --drop-version --out-osm -o=output_data_reduc.osm
-    sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig.xml --dbname routing --clean    
-    sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_bicycles.xml  --dbname bicycles_routing --clean
-    sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_cars.xml --dbname cars_routing --clean
-    sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_pedestrian.xml  --dbname pedestrian_routing --clean
+    sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig.xml --username postgres --dbname routing --clean    
+    sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_bicycles.xml  --username postgres --dbname bicycles_routing --clean
+    sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_cars.xml --username postgres --dbname cars_routing --clean
+    sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_pedestrian.xml --username postgres --dbname pedestrian_routing --clean
     
     # Create indexes
-    #sudo -u postgres psql -d routing -f indexes.sql
-    #sudo -u postgres psql -d bicycles_routing -f indexes.sql
-    #sudo -u postgres psql -d cars_routing -f indexes.sql
-    #sudo -u postgres psql -d pedestrian_routing -f indexes.sql
+    sudo -u postgres psql -d routing -f indexes.sql
+    sudo -u postgres psql -d bicycles_routing -f indexes.sql
+    sudo -u postgres psql -d cars_routing -f indexes.sql
+    sudo -u postgres psql -d pedestrian_routing -f indexes.sql
+    
+    exit 0
 fi
 
 if [ "$1" = "run" ]; then
