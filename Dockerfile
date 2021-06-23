@@ -20,7 +20,7 @@ RUN apt-get install -y --no-install-recommends \
   build-essential \
   bzip2 \
   cmake \
-  cron \
+  expat \
   g++ \
   gcc \
   gdal-bin \
@@ -33,15 +33,13 @@ RUN apt-get install -y --no-install-recommends \
   libbz2-dev \
   libcurl4-gnutls-dev \
   libexpat-dev \
-  libexpat1-dev \
+  libexpat1-dev
   libfreetype6-dev \
   libgdal-dev \
   libgeos++-dev \
   libgeos-dev \
   libicu-dev \
   libiniparser-dev \
-  libosmium2-dev \
-  libpq-dev \
   libpqxx-dev \
   libproj-dev \
   libprotobuf-c-dev \
@@ -62,7 +60,6 @@ RUN apt-get install -y --no-install-recommends \
   ttf-unifont \
   unzip \
   zlib1g-dev \
-&& apt install osmctools && wget -O - http://m.m.i24.cc/osmconvert.c | sudo cc -x c - -lz -O3 -o osmconvert \
 && apt-get clean autoclean \
 && apt-get autoremove --yes \
 && rm -rf /var/lib/{apt,dpkg,cache,log}/
@@ -82,7 +79,7 @@ RUN wget https://download.osgeo.org/postgis/source/postgis-${POSTGIS_VERSION}.ta
 RUN adduser --disabled-password --gecos "" routing
 
 # Configure PosgtreSQL
-COPY postgresql.custom.conf.tmpl /etc/postgresql/13/main/
+COPY postgresql.custom.conf.tmpl /etc/postgresql/${POSTGRESQL_VERSION}/main/
 RUN chown -R postgres:postgres /var/lib/postgresql \
  && chown postgres:postgres /etc/postgresql/${POSTGRESQL_VERSION}/main/postgresql.custom.conf.tmpl \
  && echo "host all all 0.0.0.0/0 md5" >> /etc/postgresql/${POSTGRESQL_VERSION}/main/pg_hba.conf \
@@ -94,7 +91,7 @@ RUN cd /usr/local/src \
  && cd osm2pgrouting-${OSM2PGROUTING_VERSION} \
  && mkdir build \
  && cd build \
- && cmake .. \
+ && cmake -H. -Bbuild \
  && make \
  && make install \
  && cd ../tools/osmium/ \
@@ -115,6 +112,8 @@ RUN cd /usr/local/src \
         zlib1g-dev \
  && apt autoremove -y \
  && rm -rf /var/lib/apt/lists/*
+ 
+RUN apt install osmctools && wget -O - http://m.m.i24.cc/osmconvert.c | sudo cc -x c - -lz -O3 -o osmconvert \
  
 # Start running
 COPY run.sh /
