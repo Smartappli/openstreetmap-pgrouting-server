@@ -38,6 +38,9 @@ Run the server like this:
 ```
 docker run -e AUTOVACUUM=on -v openstreetmap-data:/var/lib/postgresql/13/main -d smartappli/openstreetmap-pgrouting-server run
 ```
+## Complement
+
+openstreetmap-tile-server is available at https://github.com/smartappli/openstreetmap-tile-server
 
 ## Running the server at same time of openstreetmap-tile-server
 
@@ -51,10 +54,6 @@ docker run \
     -d smartappli/openstreetmap-pgrouting-server \
     run
 ```
-
-## Complement
-
-openstreetmap-tile-server is available at https://github.com/smartappli/openstreetmap-tile-server
 
 ## License
 
