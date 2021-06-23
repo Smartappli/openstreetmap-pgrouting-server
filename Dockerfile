@@ -15,8 +15,6 @@ RUN apt-get update \
   && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
   && echo "deb [ trusted=yes ] https://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list \  && apt-get update 
   
-RUN apt install -y libpqxx-6.2 \
-  
 RUN apt-get install -y --no-install-recommends \
   autoconf \
   build-essential \
