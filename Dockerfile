@@ -33,7 +33,7 @@ RUN apt-get install -y --no-install-recommends \
   libbz2-dev \
   libcurl4-gnutls-dev \
   libexpat-dev \
-  libexpat1-dev
+  libexpat1-dev \
   libfreetype6-dev \
   libgdal-dev \
   libgeos++-dev \
