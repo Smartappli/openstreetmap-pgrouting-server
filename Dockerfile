@@ -49,6 +49,7 @@ RUN apt-get install -y --no-install-recommends \
   libtool \
   libxml2-dev \
   make \
+  osmctools \
   postgresql-${POSTGRESQL_VERSION} \
   postgresql-contrib-${POSTGRESQL_VERSION} \
   postgresql-server-dev-${POSTGRESQL_VERSION} \
@@ -128,11 +129,11 @@ RUN apt update \
  && apt autoremove -y \
  && rm -rf /var/lib/apt/lists/*
  
-RUN git clone https://github.com/ramunasd/osmctools.git \
- && cd osmctools \
- && autoreconf --install \
- && ./configure \
- && make install 
+#RUN git clone https://github.com/ramunasd/osmctools.git \
+# && cd osmctools \
+# && autoreconf --install \
+# && ./configure \
+# && make install 
  
 # Start running
 COPY run.sh /
