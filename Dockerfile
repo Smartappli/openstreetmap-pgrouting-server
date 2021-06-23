@@ -125,7 +125,6 @@ RUN chown -R postgres:postgres /var/lib/postgresql \
         libboost-graph-dev \
         postgresql-server-dev-${POSTGRESQL_VERSION} \
  && rm -rf /var/lib/apt/lists/*
-RUN rm /docker-entrypoint-initdb.d/10_postgis.sh
 
 #osm2pgrouting
 RUN apt update \
