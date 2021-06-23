@@ -92,14 +92,13 @@ RUN chown -R postgres:postgres /var/lib/postgresql \
 
 #pgrouting
 RUN apt install -y \
-        libboost-atomic \
-        libboost-chrono \
-        libboost-graph \
-        libboost-date-time \
-        libboost-program-options \
-        libboost-system \
-        libboost-thread \
-        libcgal-dev \
+        libboost-atomic-dev \
+        libboost-chrono-dev \
+        libboost-graph-dev \
+        libboost-date-time-dev \
+        libboost-program-options-dev \
+        libboost-system-dev \
+        libboost-thread-dev \
         libboost-graph-dev \
         libcgal-dev \
         libpq-dev \
