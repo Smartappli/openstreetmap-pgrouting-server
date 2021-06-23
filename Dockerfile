@@ -89,7 +89,7 @@ RUN chown -R postgres:postgres /var/lib/postgresql \
      
 RUN apt update \
  && apt install -y \
-        libpqxx-6.2 \
+        libpqxx-6.4 \
  && apt install -y \
         build-essential \
         cmake \
