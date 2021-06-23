@@ -132,7 +132,7 @@ RUN git clone https://github.com/ramunasd/osmctools.git \
  && cd osmctools \
  && autoreconf --install \
  && ./configure \
- && make install \
+ && make install 
  
 # Start running
 COPY run.sh /
