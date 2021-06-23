@@ -10,4 +10,5 @@ osmconvert planet-latest.osm.pbf --drop-author --drop-version --out-osm -o=outpu
 rm planet-latest.osm.pbf
 
 docker volume create openstreetmap-datapgr
-docker run --name pgrouting -e AUTOVACUUM=off -e -p 5433:5432 -v /opt/output_data_reduc.osm:/output_data_reduc.osm -v openstreetmap-datapgr:/var/lib/postgresql/13/main smartappli/openstreetmap-pgrouting-server import
+docker run --name pgrouting -e AUTOVACUUM=off -e PGPASSWORD=pgr -p 5433:5432 -v /opt/output_data_reduc.osm:/output_data_reduc.osm -v openstreetmap-datapgr:/var/lib/postgresql/13/main smartappli/openstreetmap-pgrouting-server import
+docker run --name pgrouting -e AUTOVACUUM=on -e PGPASSWORD=pgr -p 5433:5432 -v openstreetmap-datapgr:/var/lib/postgresql/13/main -d smartappli/openstreetmap-pgrouting-server run
