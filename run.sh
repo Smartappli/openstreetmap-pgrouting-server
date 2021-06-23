@@ -44,33 +44,19 @@ if [ "$1" = "import" ]; then
     sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION postgis;"
     sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION pgrouting;" 
     setPostgresPassword
-    sleep 30 
-    
-    # Download Luxembourg as sample if no data is provided
-    if [ ! -f /data.osm.pbf ] && [ -z "$DOWNLOAD_PBF" ]; then
-        echo "WARNING: No import file at /data.osm.pbf, so importing Luxembourg as example..."
-        DOWNLOAD_PBF="https://download.geofabrik.de/europe/luxembourg-latest.osm.pbf"
-    fi
-
-    if [ -n "$DOWNLOAD_PBF" ]; then
-        echo "INFO: Download PBF file: $DOWNLOAD_PBF"
-        wget "$WGET_ARGS" "$DOWNLOAD_PBF" -O /data.osm.pbf
-    fi
-    
+      
     # Import data
     #osmconvert /data.osm.pbf --drop-author --drop-version --drop-timestamp --out-osm -o=output_data_reduc.osm
     osm2pgrouting --f output_data_reduc.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --clean  
     osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname bicycles_routing --clean
     osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname cars_routing --clean
     osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname pedestrian_routing --clean
-    sleep 30 
     
     # Create indexes
     sudo -u postgres psql -d routing -f indexes.sql
     sudo -u postgres psql -d bicycles_routing -f indexes.sql
     sudo -u postgres psql -d cars_routing -f indexes.sql
     sudo -u postgres psql -d pedestrian_routing -f indexes.sql
-    sleep 30
     
     exit 0
 fi
