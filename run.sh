@@ -58,7 +58,7 @@ if [ "$1" = "import" ]; then
     fi
     
     # Import data
-    sudo -u routing osmconvert /data.osm.pbf --drop-author --drop-version --out-osm -o=output_data_reduc.osm
+    osmconvert /data.osm.pbf --drop-author --drop-version --drop-timestamp --out-osm -o=output_data_reduc.osm
     sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig.xml --username postgres --dbname routing --clean
     sleep 30
     
