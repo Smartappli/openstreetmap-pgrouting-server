@@ -128,7 +128,11 @@ RUN apt update \
  && apt autoremove -y \
  && rm -rf /var/lib/apt/lists/*
  
-RUN apt install osmctools && wget -O - http://m.m.i24.cc/osmconvert.c | sudo cc -x c - -lz -O3 -o osmconvert \
+RUN git clone https://github.com/ramunasd/osmctools.git \
+ && cd osmctools \
+ && autoreconf --install \
+ && ./configure \
+ && make install \
  
 # Start running
 COPY run.sh /
