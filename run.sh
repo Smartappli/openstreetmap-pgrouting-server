@@ -44,6 +44,7 @@ if [ "$1" = "import" ]; then
     sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION postgis;"
     sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION pgrouting;" 
     setPostgresPassword
+    sleep 30 
     
     # Download Luxembourg as sample if no data is provided
     if [ ! -f /data.osm.pbf ] && [ -z "$DOWNLOAD_PBF" ]; then
@@ -62,12 +63,14 @@ if [ "$1" = "import" ]; then
     sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_bicycles.xml  --username postgres --dbname bicycles_routing --clean
     sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_cars.xml --username postgres --dbname cars_routing --clean
     sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_pedestrian.xml --username postgres --dbname pedestrian_routing --clean
+    sleep 30 
     
     # Create indexes
     sudo -u postgres psql -d routing -f indexes.sql
     sudo -u postgres psql -d bicycles_routing -f indexes.sql
     sudo -u postgres psql -d cars_routing -f indexes.sql
     sudo -u postgres psql -d pedestrian_routing -f indexes.sql
+    sleep 30
     
     exit 0
 fi
