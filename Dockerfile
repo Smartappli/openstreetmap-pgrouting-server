@@ -94,13 +94,13 @@ RUN chown -R postgres:postgres /var/lib/postgresql \
 RUN set -ex \
  && apt update \
  && apt install -y \
-        libboost-atomic \
-        libboost-chrono \
-        libboost-graph \
-        libboost-date-time \
-        libboost-program-options \
-        libboost-system \
-        libboost-thread \
+        libboost-atomic1.67.0 \
+        libboost-chrono1.67.0 \
+        libboost-graph1.67.0 \
+        libboost-date-time1.67.0 \
+        libboost-program-options1.67.0 \
+        libboost-system1.67.0 \
+        libboost-thread1.67.0 \
         libcgal13 \
  && apt install -y \
         build-essential \
@@ -109,7 +109,7 @@ RUN set -ex \
         libboost-graph-dev \
         libcgal-dev \
         libpq-dev \
-        postgresql-server-dev-${POSTGRESQL_VERSION} \
+        postgresql-server-dev-${PG_MAJOR} \
  && wget -O pgrouting.tar.gz "https://github.com/pgRouting/pgrouting/archive/v${PGROUTING_VERSION}.tar.gz" \
  && echo "$PGROUTING_SHA256 *pgrouting.tar.gz" | sha256sum -c - \
  && mkdir -p /usr/src/pgrouting \
@@ -127,7 +127,7 @@ RUN set -ex \
  && make install \
  && cd / \
  && rm -rf /usr/src/pgrouting \
- && apt-mark manual postgresql-${POSTGRESQL_VERSION} \
+ && apt-mark manual postgresql-13 \
  && apt purge -y --autoremove \
         build-essential \
         cmake \
