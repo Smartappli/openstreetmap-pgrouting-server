@@ -89,9 +89,10 @@ RUN cd /usr/local/src \
  && wget https://github.com/pgRouting/osm2pgrouting/archive/v${OSM2PGROUTING_VERSION}.tar.gz \
  && tar xvf v${OSM2PGROUTING_VERSION}.tar.gz \
  && cd osm2pgrouting-${OSM2PGROUTING_VERSION} \
+ && cmake -H. -Bbuild \
  && mkdir build \
  && cd build \
- && cmake -H. -Bbuild \
+ && cmake .. \
  && make \
  && make install \
  && cd ../tools/osmium/ \
