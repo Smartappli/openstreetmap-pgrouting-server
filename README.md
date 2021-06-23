@@ -8,18 +8,24 @@ First create a Docker volume to hold the PostgreSQL database that will contain t
 
     docker volume create openstreetmap-datapgr
 
-Next, download an .osm.pbf extract from geofabrik.de for the region that you're interested in. You can then start importing it into PostgreSQL by running a container and mounting the file as `/data.osm.pbf`. For example:
+Next, download an .osm.pbf extract from i.e. geofabrik.de for the region that you're interested in or entire planet from a mirror of planet osm. 
+
+Install osmctools `apt install osmctools` and clean the file by means of `osmconvert.
+```
+osmconvert planet-latest.osm.pbf --drop-author --drop-version --out-osm -o=output_data_reduc.osm
+```
+Afterwards, start importing it into PostgreSQL by running a container and mounting the file as `/output_data_reduc.osm`. For example:
 
 ```
 docker run \
     -e AUTOVACUUM=off \
-    -v /absolute/path/to/belgium.osm:/output_data_reduc.osm \
+    -v /absolute/path/to/output_data_reduc.osm:/output_data_reduc.osm \
     -v openstreetmap-datapgr:/var/lib/postgresql/13/main \
     smartappli/openstreetmap-pgrouting-server \
     import
 ```
 
-In one line
+In one line:
 ```
 docker run -e AUTOVACUUM=off -v /absolute/path/to/belgium.osm:/output_data_reduc.osm -v openstreetmap-datapgr:/var/lib/postgresql/13/main smartappli/openstreetmap-pgrouting-server import
 ```
