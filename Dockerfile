@@ -40,7 +40,6 @@ RUN apt-get install -y --no-install-recommends \
   libgeos-dev \
   libicu-dev \
   libiniparser-dev \
-  libpq-dev \
   libpqxx-dev \
   libpqxx-6.4 \
   libproj-dev \
