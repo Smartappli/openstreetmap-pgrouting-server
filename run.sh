@@ -58,13 +58,11 @@ if [ "$1" = "import" ]; then
     fi
     
     # Import data
-    osmconvert /data.osm.pbf --drop-author --drop-version --drop-timestamp --out-osm -o=output_data_reduc.osm
-    sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig.xml --username postgres --dbname routing --clean
-    sleep 30
-    
-    sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_bicycles.xml  --username postgres --dbname bicycles_routing --clean
-    sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_cars.xml --username postgres --dbname cars_routing --clean
-    sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_pedestrian.xml --username postgres --dbname pedestrian_routing --clean
+    #osmconvert /data.osm.pbf --drop-author --drop-version --drop-timestamp --out-osm -o=output_data_reduc.osm
+    osm2pgrouting --f output_data_reduc.osm --conf mapconfig.xml --username postgres --dbname routing --clean  
+    osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_bicycles.xml  --username postgres --dbname bicycles_routing --clean
+    osm2pgouting osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_cars.xml --username postgres --dbname cars_routing --clean
+    osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_pedestrian.xml --username postgres --dbname pedestrian_routing --clean
     sleep 30 
     
     # Create indexes
