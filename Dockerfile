@@ -28,11 +28,17 @@ RUN apt-get install -y --no-install-recommends \
   gdal-bin \
   git-core \
   libagg-dev \
+  libboost-atomic-dev \
+  libboost-chrono-dev \
+  libboost-date-time-dev \
   libboost-dev \
   libboost-filesystem-dev \
+  libboost-graph-dev \
   libboost-program-options-dev \
   libboost-system-dev \
+  libboost-thread-dev \
   libbz2-dev \
+  libcgal-dev \
   libcurl4-gnutls-dev \
   libexpat-dev \
   libexpat1-dev \
@@ -43,6 +49,7 @@ RUN apt-get install -y --no-install-recommends \
   libicu-dev \
   libiniparser-dev \
   libosmium2-dev \
+  libpq-dev \
   libpqxx-dev \
   libpqxx-6.4 \
   libproj-dev \
@@ -90,21 +97,7 @@ RUN chown -R postgres:postgres /var/lib/postgresql \
  && echo "host all all 0.0.0.0/0 md5" >> /etc/postgresql/${POSTGRESQL_VERSION}/main/pg_hba.conf \
  && echo "host all all ::/0 md5" >> /etc/postgresql/${POSTGRESQL_VERSION}/main/pg_hba.conf
 
-#pgrouting
-RUN apt install -y \
-        libboost-atomic-dev \
-        libboost-chrono-dev \
-        libboost-graph-dev \
-        libboost-date-time-dev \
-        libboost-program-options-dev \
-        libboost-system-dev \
-        libboost-thread-dev \
-        libboost-graph-dev \
-        libcgal-dev \
-        libpq-dev \
-        libpqxx-dev \
-        postgresql-server-dev-${POSTGRESQL_VERSION} 
-        
+#pgrouting     
  RUN wget -O pgrouting.tar.gz "https://github.com/pgRouting/pgrouting/archive/v${PGROUTING_VERSION}.tar.gz" \
  && echo "$PGROUTING_SHA256 *pgrouting.tar.gz" | sha256sum -c - \
  && mkdir -p /usr/src/pgrouting \
