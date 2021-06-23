@@ -57,7 +57,7 @@ if [ "$1" = "import" ]; then
     fi
     
     # Import data
-    sudo -u routing osmconvert data.osm.pbf --drop-author --drop-version --out-pbf -o=output_data_reduc.osm.pbf
+    sudo -u pgr osmconvert data.osm.pbf --drop-author --drop-version --out-pbf -o=output_data_reduc.osm.pbf
     rm data.osm.pbf
     sudo -u pgr osm2pgrouting --f output_data_reduc.osm.pbf --conf mapconfig.xml  --dbname routing --clean    
     sudo -u pgr osm2pgrouting --f output_data_reduc.osm.pbf --conf mapconfig_for_bicycles.xml  --dbname bicycles_routing --clean
