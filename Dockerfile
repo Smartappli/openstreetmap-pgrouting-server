@@ -15,6 +15,8 @@ RUN apt-get update \
   && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
   && echo "deb [ trusted=yes ] https://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list \  && apt-get update 
   
+RUN apt install -y libpqxx-6.2 \
+  
 RUN apt-get install -y --no-install-recommends \
   autoconf \
   build-essential \
@@ -40,6 +42,7 @@ RUN apt-get install -y --no-install-recommends \
   libgeos-dev \
   libicu-dev \
   libiniparser-dev \
+  libosmium2-dev \
   libpqxx-dev \
   libpqxx-6.4 \
   libproj-dev \
@@ -86,7 +89,20 @@ RUN chown -R postgres:postgres /var/lib/postgresql \
  && echo "host all all 0.0.0.0/0 md5" >> /etc/postgresql/${POSTGRESQL_VERSION}/main/pg_hba.conf \
  && echo "host all all ::/0 md5" >> /etc/postgresql/${POSTGRESQL_VERSION}/main/pg_hba.conf
      
-RUN cd /usr/local/src \
+RUN apt update \
+ && apt install -y \
+        libpqxx-6.2 \
+ && apt install -y \
+        build-essential \
+        cmake \
+        wget \
+        libboost-program-options-dev \
+        libexpat1 \
+        libexpat-dev \
+        libosmium2-dev \
+        libpqxx-dev \
+        zlib1g-dev \
+ && cd /usr/local/src \
  && wget https://github.com/pgRouting/osm2pgrouting/archive/v${OSM2PGROUTING_VERSION}.tar.gz \
  && tar xvf v${OSM2PGROUTING_VERSION}.tar.gz \
  && cd osm2pgrouting-${OSM2PGROUTING_VERSION} \
