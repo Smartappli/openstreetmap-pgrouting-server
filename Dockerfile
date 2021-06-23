@@ -177,6 +177,10 @@ RUN apt update \
 # Start running
 COPY run.sh /
 RUN chmod +x /run.sh
+COPY mapconfig.xml /
+COPY mapconfig_for_bicycles.xml /
+COPY mapconfig_for_cars.xml /
+COPY mapconfig_for_pedestrian.xml /
 COPY indexes.sql /
 ENTRYPOINT ["/run.sh"]
 CMD []
