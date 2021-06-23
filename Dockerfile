@@ -42,6 +42,7 @@ RUN apt-get install -y --no-install-recommends \
   libiniparser-dev \
   libpq-dev \
   libpqxx-dev \
+  libpqxx-6.4 \
   libproj-dev \
   libprotobuf-c-dev \
   libtiff5-dev \
