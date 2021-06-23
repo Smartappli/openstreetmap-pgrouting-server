@@ -59,17 +59,17 @@ if [ "$1" = "import" ]; then
     
     # Import data
     #osmconvert /data.osm.pbf --drop-author --drop-version --drop-timestamp --out-osm -o=output_data_reduc.osm
-    osm2pgrouting --f output_data_reduc.osm.pbf --conf /usr/share/osm2pgrouting/mapconfig.xml --username pgr --dbname routing --clean  
-    sudo -u postgres osm2pgrouting --f output_data_reduc.osm.pbf --conf /usr/share/osm2pgrouting/mapconfig_for_bicycles.xml  --username postgres --dbname bicycles_routing --clean
-    sudo -u pgr osm2pgrouting --f output_data_reduc.osm.pbf --conf /usr/share/osm2pgrouting/mapconfig_for_cars.xml --username postgres --dbname cars_routing --clean
-    osm2pgrouting --f output_data_reduc.osm.pbf --conf /usr/share/osm2pgrouting/mapconfig_for_pedestrian.xml --username postgres --dbname pedestrian_routing --clean
+    osm2pgrouting --f output_data_reduc.osm.pbf --conf /usr/share/osm2pgrouting/mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --clean  
+    osm2pgrouting --f output_data_reduc.osm.pbf --conf /usr/share/osm2pgrouting/mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname bicycles_routing --clean
+    osm2pgrouting --f output_data_reduc.osm.pbf --conf /usr/share/osm2pgrouting/mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname cars_routing --clean
+    osm2pgrouting --f output_data_reduc.osm.pbf --conf /usr/share/osm2pgrouting/mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname pedestrian_routing --clean
     sleep 30 
     
     # Create indexes
-    #sudo -u postgres psql -d routing -f indexes.sql
-    #sudo -u postgres psql -d bicycles_routing -f indexes.sql
-    #sudo -u postgres psql -d cars_routing -f indexes.sql
-    #sudo -u postgres psql -d pedestrian_routing -f indexes.sql
+    sudo -u postgres psql -d routing -f indexes.sql
+    sudo -u postgres psql -d bicycles_routing -f indexes.sql
+    sudo -u postgres psql -d cars_routing -f indexes.sql
+    sudo -u postgres psql -d pedestrian_routing -f indexes.sql
     sleep 30
     
     exit 0
