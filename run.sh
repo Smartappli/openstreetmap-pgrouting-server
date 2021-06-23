@@ -33,16 +33,16 @@ if [ "$1" = "import" ]; then
     sudo -u postgres createuser pgr
     sudo -u postgres createdb -E UTF8 -O pgr routing
     sudo -u postgres psql -d routing -c "CREATE EXTENSION postgis;"
-    sudo -u postgres psql -d routing -c "CREATE EXTENSION pgrouting CASCADE;"
+    sudo -u postgres psql -d routing -c "CREATE EXTENSION pgrouting;"
     sudo -u postgres createdb -E UTF8 -O pgr cars_routing
     sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION postgis;"
-    sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION pgrouting CASCADE;"
+    sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION pgrouting;"
     sudo -u postgres createdb -E UTF8 -O pgr bicycles_routing
     sudo -u postgres psql -d bicycles_routing -c "CREATE EXTENSION postgis;"
-    sudo -u postgres psql -d bicycles_routing -c "CREATE EXTENSION pgrouting CASCADE;"
+    sudo -u postgres psql -d bicycles_routing -c "CREATE EXTENSION pgrouting;"
     sudo -u postgres createdb -E UTF8 -O pgr pedestrian_routing
     sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION postgis;"
-    sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION pgrouting CASCADE;" 
+    sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION pgrouting;" 
     setPostgresPassword
     
     # Download Luxembourg as sample if no data is provided
@@ -57,9 +57,8 @@ if [ "$1" = "import" ]; then
     fi
     
     # Import data
-    sudo -u routing osmconvert data.osm.pbf --drop-author --drop-version --out-osmf -o=output_data_reduc.osm
-    rm data.osm.pbf
-    sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig.xml  --dbname routing --clean    
+    sudo -u routing osmconvert /data.osm.pbf --drop-author --drop-version --out-osm -o=output_data_reduc.osm
+    sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig.xml --dbname routing --clean    
     sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_bicycles.xml  --dbname bicycles_routing --clean
     sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_cars.xml --dbname cars_routing --clean
     sudo -u routing osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_pedestrian.xml  --dbname pedestrian_routing --clean
