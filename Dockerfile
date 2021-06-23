@@ -30,7 +30,6 @@ RUN apt-get install -y --no-install-recommends \
   libboost-filesystem-dev \
   libboost-program-options-dev \
   libboost-system-dev \
-  libbrotli-dev \
   libbz2-dev \
   libcurl4-gnutls-dev \
   libexpat-dev \
@@ -80,7 +79,7 @@ RUN wget https://download.osgeo.org/postgis/source/postgis-${POSTGIS_VERSION}.ta
  && cd .. && rm -rf postgis_src
 
 # Set up routing user
-RUN adduser --disabled-password --gecos "" pgr
+#RUN adduser --disabled-password --gecos "" pgr
 
 # Configure PosgtreSQL
 COPY postgresql.custom.conf.tmpl /etc/postgresql/13/main/
