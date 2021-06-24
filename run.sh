@@ -57,9 +57,16 @@ if [ "$1" = "import" ]; then
     osm2pgrouting --f /osm/canary-islands.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index   
     osm2pgrouting --f /osm/cape-verde.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/central-african-republic.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
-    osm2pgrouting --f /osm/chad.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index  
-   
+    osm2pgrouting --f /osm/chad.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/comores.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/congo-brazzaville.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/congo-democratic.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/djibouti.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/egypt.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/equatorial-guinea.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    
     osm2pgrouting --f /osm/antarctica.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/oceania.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/c_america.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     
     
