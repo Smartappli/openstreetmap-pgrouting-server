@@ -20,7 +20,7 @@ osmconvert benin-latest.osm.pbf --drop-author --drop-version --out-osm -o=benin.
 rm benin-latest.osm.pbf
 
 wget -c https://download.geofabrik.de/africa/botswana-latest.osm.pbf
-osmconvert botswana-latest.osm.pbf --drop-author --drop-version --out-osm -o=/osm/botswana.osm
+osmconvert botswana-latest.osm.pbf --drop-author --drop-version --out-osm -o=botswana.osm
 rm botswana-latest.osm.pbf
 
 wget -c https://download.geofabrik.de/africa/burkina-faso-latest.osm.pbf
@@ -72,8 +72,44 @@ osmconvert egypt-latest.osm.pbf --drop-author --drop-version --out-osm -o=egypt.
 rm egypt-latest.osm.pbf
 
 wget -c https://download.geofabrik.de/africa/equatorial-guinea-latest.osm.pbf
-osmconvert equatorial-guinea.osm.pbf --drop-author --drop-version --out-osm -o=equatorial-guinea.osm
-rm equatorial-guinea.osm.pbf
+osmconvert equatorial-guinea-latest.osm.pbf --drop-author --drop-version --out-osm -o=equatorial-guinea.osm
+rm equatorial-guinea-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/africa/eritrea-latest.osm.pbf
+osmconvert eritrea-latest.osm.pbf --drop-author --drop-version --out-osm -o=eritrea.osm
+rm eritrea-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/africa/ethiopia-latest.osm.pbf
+osmconvert ethiopia-latest.osm.pbf --drop-author --drop-version --out-osm -o=ethiopia.osm
+rm ethiopia-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/africa/gabon-latest.osm.pbf
+osmconvert gabon-latest.osm.pbf --drop-author --drop-version --out-osm -o=gabon.osm
+rm gabon-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/africa/ghana-latest.osm.pbf
+osmconvert ghana-latest.osm.pbf --drop-author --drop-version --out-osm -o=ghana.osm
+rm ghana-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/africa/guinea-latest.osm.pbf
+osmconvert guinea-latest.osm.pbf --drop-author --drop-version --out-osm -o=guinea.osm
+rm guinea-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/africa/guinea-bissau-latest.osm.pbf
+osmconvert guinea-bissau-latest.osm.pbf --drop-author --drop-version --out-osm -o=guinea-bissau.osm
+rm guinea-bissau-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/africa/ivory-coast-latest.osm.pbf
+osmconvert ivory-coast-latest.osm.pbf --drop-author --drop-version --out-osm -o=ivory-coast.osm
+rm ivory-coast-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/africa/kenya-latest.osm.pbf
+osmconvert kenya-latest.osm.pbf --drop-author --drop-version --out-osm -o=kenya.osm
+rm kenya-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/africa/lesotho-latest.osm.pbf
+osmconvert lesotho-latest.osm.pbf --drop-author --drop-version --out-osm -o=lesotho.osm
+rm lesotho-latest.osm.pbf
 
 #Antartica
 wget -c http://download.geofabrik.de/antarctica-latest.osm.pbf
