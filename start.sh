@@ -49,12 +49,31 @@ rm central-african-republic-latest.osm.pbf
 
 wget -c https://download.geofabrik.de/africa/chad-latest.osm.pbf
 osmconvert chad-latest.osm.pbf --drop-author --drop-version --out-osm -o=chad.osm
-rm chad.osm-latest.pbf
+rm chad-latest.osm.pbf
 
+wget -c https://download.geofabrik.de/africa/comores-latest.osm.pbf
+osmconvert comores-latest.osm.pbf --drop-author --drop-version --out-osm -o=comores.osm
+rm comores-latest.osm.pbf
 
+wget -c https://download.geofabrik.de/africa/congo-brazzaville-latest.osm.pbf
+osmconvert congo-brazzaville-latest.osm.pbf --drop-author --drop-version --out-osm -o=congo-brazzaville.osm
+rm congo-brazzaville-latest.osm.pbf
 
+wget -c https://download.geofabrik.de/africa/congo-democratic-republic-latest.osm.pbf
+osmconvert congo-democratic-republic-latest.osm.pbf --drop-author --drop-version --out-osm -o=congo-democratic-republic.osm
+rm congo-democratic-republic-latest.osm.pbf
 
+wget -c https://download.geofabrik.de/africa/djibouti-latest.osm.pbf
+osmconvert djibouti-latest.osm.pbf --drop-author --drop-version --out-osm -o=djibouti.osm
+rm djibouti-latest.osm.pbf
 
+wget -c https://download.geofabrik.de/africa/egypt-latest.osm.pbf
+osmconvert egypt-latest.osm.pbf --drop-author --drop-version --out-osm -o=egypt.osm
+rm egypt-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/africa/equatorial-guinea-latest.osm.pbf
+osmconvert equatorial-guinea.osm.pbf --drop-author --drop-version --out-osm -o=equatorial-guinea.osm
+rm equatorial-guinea.osm.pbf
 
 #Antartica
 wget -c http://download.geofabrik.de/antarctica-latest.osm.pbf
