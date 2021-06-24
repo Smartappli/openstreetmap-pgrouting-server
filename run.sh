@@ -47,14 +47,21 @@ if [ "$1" = "import" ]; then
       
     # Import data
     #osmconvert /data.osm.pbf --drop-author --drop-version --drop-timestamp --out-osm -o=output_data_reduc.osm
-    osm2pgrouting --f africa.osm.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --clean
-    osm2pgrouting --f antarctica.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
-    osm2pgrouting --f asia.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
-    osm2pgrouting --f oceania.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
-    osm2pgrouting --f europe.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index  
-    osm2pgrouting --f n_america.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
-    osm2pgrouting --f c_america.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
-    osm2pgrouting --f s_america.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/algeria.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --clean
+    osm2pgrouting --f /osm/angola.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/benin.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/botswana.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/burkina-faso.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index 
+    osm2pgrouting --f /osm/burundi.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/cameroon.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/canary-islands.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index   
+    osm2pgrouting --f /osm/cape-verde.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/central-african-republic.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/chad.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index  
+   
+    osm2pgrouting --f /osm/antarctica.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/c_america.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    
     
     #osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname bicycles_routing --clean
     #osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname cars_routing --clean
