@@ -34,29 +34,29 @@ if [ "$1" = "import" ]; then
     sudo -u postgres createdb -E UTF8 -O pgr routing
     sudo -u postgres psql -d routing -c "CREATE EXTENSION postgis;"
     sudo -u postgres psql -d routing -c "CREATE EXTENSION pgrouting;"
-    sudo -u postgres createdb -E UTF8 -O pgr cars_routing
-    sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION postgis;"
-    sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION pgrouting;"
-    sudo -u postgres createdb -E UTF8 -O pgr bicycles_routing
-    sudo -u postgres psql -d bicycles_routing -c "CREATE EXTENSION postgis;"
-    sudo -u postgres psql -d bicycles_routing -c "CREATE EXTENSION pgrouting;"
-    sudo -u postgres createdb -E UTF8 -O pgr pedestrian_routing
-    sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION postgis;"
-    sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION pgrouting;" 
+    #sudo -u postgres createdb -E UTF8 -O pgr cars_routing
+    #sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION postgis;"
+    #sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION pgrouting;"
+    #sudo -u postgres createdb -E UTF8 -O pgr bicycles_routing
+    #sudo -u postgres psql -d bicycles_routing -c "CREATE EXTENSION postgis;"
+    #sudo -u postgres psql -d bicycles_routing -c "CREATE EXTENSION pgrouting;"
+    #sudo -u postgres createdb -E UTF8 -O pgr pedestrian_routing
+    #sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION postgis;"
+    #sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION pgrouting;" 
     setPostgresPassword
       
     # Import data
     #osmconvert /data.osm.pbf --drop-author --drop-version --drop-timestamp --out-osm -o=output_data_reduc.osm
     osm2pgrouting --f output_data_reduc.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --clean  
-    osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname bicycles_routing --clean
-    osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname cars_routing --clean
-    osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname pedestrian_routing --clean
+    #osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname bicycles_routing --clean
+    #osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname cars_routing --clean
+    #osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname pedestrian_routing --clean
     
     # Create indexes
-    sudo -u postgres psql -d routing -f indexes.sql
-    sudo -u postgres psql -d bicycles_routing -f indexes.sql
-    sudo -u postgres psql -d cars_routing -f indexes.sql
-    sudo -u postgres psql -d pedestrian_routing -f indexes.sql
+    #sudo -u postgres psql -d routing -f indexes.sql
+    #sudo -u postgres psql -d bicycles_routing -f indexes.sql
+    #sudo -u postgres psql -d cars_routing -f indexes.sql
+    #sudo -u postgres psql -d pedestrian_routing -f indexes.sql
     
     exit 0
 fi
