@@ -587,6 +587,37 @@ rm ukraine.osm.pbf
 
 #North America
 
+wget -c https://download.geofabrik.de/north-america/canada-latest.osm.pbf
+osmconvert canada-latest.osm.pbf --drop-author --drop-version --out-osm -o=canada.osm
+rm canada.osm.pbf
+
+wget -c https://download.geofabrik.de/north-america/greenland-latest.osm.pbf
+osmconvert greenland-latest.osm.pbf --drop-author --drop-version --out-osm -o=greenland.osm
+rm greenland.osm.pbf
+
+wget -c hhttps://download.geofabrik.de/north-america/mexico-latest.osm.pbf
+osmconvert mexico-latest.osm.pbf --drop-author --drop-version --out-osm -o=mexico.osm
+rm mexico.osm.pbf
+
+wget -c https://download.geofabrik.de/north-america/us-midwest-latest.osm.pbf
+osmconvert us-midwest-latest.osm.pbf --drop-author --drop-version --out-osm -o=us-midwest.osm
+rm us-midwest.osm.pbf
+
+wget -c https://download.geofabrik.de/north-america/us-northeast-latest.osm.pbf
+osmconvert us-northeast-latest.osm.pbf --drop-author --drop-version --out-osm -o=us-northeast.osm
+rm us-northeast.osm.pbf
+
+wget -c https://download.geofabrik.de/north-america/us-pacific-latest.osm.pbf
+osmconvert us-pacific-latest.osm.pbf --drop-author --drop-version --out-osm -o=us-pacific.osm
+rm us-pacific.osm.pbf
+
+wget -c https://download.geofabrik.de/north-america/us-south-latest.osm.pbf
+osmconvert us-south-latest.osm.pbf --drop-author --drop-version --out-osm -o=us-south.osm
+rm us-south.osm.pbf
+
+wget -c https://download.geofabrik.de/north-america/us-west-latest.osm.pbf
+osmconvert us-west-latest.osm.pbf --drop-author --drop-version --out-osm -o=us-west.osm
+rm us-west.osm.pbf
 
 #Central America
 wget -c http://download.geofabrik.de/central-america-latest.osm.pbf
