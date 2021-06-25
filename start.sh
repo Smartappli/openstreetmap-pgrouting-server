@@ -626,6 +626,53 @@ rm central-america-latest.osm.pbf
 
 #South America
 
+wget -c https://download.geofabrik.de/south-america/argentina-latest.osm.pbf
+osmconvert argentina-latest.osm.pbf --drop-author --drop-version --out-osm -o=argentina.osm
+rm argentina-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/south-america/bolivia-latest.osm.pbf
+osmconvert bolivia-latest.osm.pbf --drop-author --drop-version --out-osm -o=bolivia.osm
+rm bolivia-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/south-america/brazil-latest.osm.pbf
+osmconvert brazil-latest.osm.pbf --drop-author --drop-version --out-osm -o=brazil.osm
+rm brazil-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/south-america/chile-latest.osm.pbf
+osmconvert chile-latest.osm.pbf --drop-author --drop-version --out-osm -o=chile.osm
+rm chile-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/south-america/colombia-latest.osm.pbf
+osmconvert colombia-latest.osm.pbf --drop-author --drop-version --out-osm -o=colombia.osm
+rm colombia-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/south-america/ecuador-latest.osm.pbf
+osmconvert ecuador-latest.osm.pbf --drop-author --drop-version --out-osm -o=ecuador.osm
+rm ecuador-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/south-america/paraguay-latest.osm.pbf
+osmconvert paraguay-latest.osm.pbf --drop-author --drop-version --out-osm -o=paraguay.osm
+rm paraguay-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/south-america/paraguay-latest.osm.pbf
+osmconvert paraguay-latest.osm.pbf --drop-author --drop-version --out-osm -o=paraguay.osm
+rm paraguay-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/south-america/peru-latest.osm.pbf
+osmconvert peru-latest.osm.pbf --drop-author --drop-version --out-osm -o=peru.osm
+rm peru-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/south-america/suriname-latest.osm.pbf
+osmconvert suriname-latest.osm.pbf --drop-author --drop-version --out-osm -o=suriname.osm
+rm suriname-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/south-america/uruguay-latest.osm.pbf
+osmconvert uruguay-latest.osm.pbf --drop-author --drop-version --out-osm -o=uruguay.osm
+rm uruguay-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/south-america/venezuela-latest.osm.pbf
+osmconvert venezuela-latest.osm.pbf --drop-author --drop-version --out-osm -o=venezuela.osm
+rm venezuela-latest.osm.pbf
 
 docker volume create openstreetmap-datapgr
 docker run --name pgrouting -e AUTOVACUUM=off -e PGPASSWORD=pgr -p 5433:5432 -v /opt:/osm -v openstreetmap-datapgr:/var/lib/postgresql/13/main smartappli/openstreetmap-pgrouting-server import
