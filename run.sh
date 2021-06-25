@@ -46,7 +46,6 @@ if [ "$1" = "import" ]; then
     setPostgresPassword
       
     # Import data
-    #osmconvert /data.osm.pbf --drop-author --drop-version --drop-timestamp --out-osm -o=output_data_reduc.osm
     osm2pgrouting --f /osm/algeria.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --clean
     osm2pgrouting --f /osm/angola.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/benin.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
@@ -71,10 +70,42 @@ if [ "$1" = "import" ]; then
     osm2pgrouting --f /osm/guinea.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/guinea-bissau.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/ivory-coast.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
-    osm2pgrouting --f /osm/kenya-coast.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
-    osm2pgrouting --f /osm/lesotho-coast.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/kenya.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/lesotho.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/liberia.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index 
+    osm2pgrouting --f /osm/libya.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index  
+    osm2pgrouting --f /osm/madagascar.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index  
+    osm2pgrouting --f /osm/malawi.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/mali.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/mauritania.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/mauritius.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/morocco.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/mozambique.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/namibia.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/niger.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/nigeria.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/saint-helena-ascension-and-tristan-da-cunha.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sao-tome-and-principe.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/senegal-and-gambia.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/seychelles.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sierra-leone.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/somalia.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/south-africa.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/south-sudan.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sudan.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/swaziland.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/tanzania.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/togo.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/tunisia.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/uganda.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/zambia.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/zimbabwe.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index 
     
     osm2pgrouting --f /osm/antarctica.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    
+    
+    
+    
     osm2pgrouting --f /osm/oceania.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/c_america.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     
