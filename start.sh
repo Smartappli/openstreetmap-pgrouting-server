@@ -654,10 +654,6 @@ wget -c https://download.geofabrik.de/south-america/paraguay-latest.osm.pbf
 osmconvert paraguay-latest.osm.pbf --drop-author --drop-version --out-osm -o=paraguay.osm
 rm paraguay-latest.osm.pbf
 
-wget -c https://download.geofabrik.de/south-america/paraguay-latest.osm.pbf
-osmconvert paraguay-latest.osm.pbf --drop-author --drop-version --out-osm -o=paraguay.osm
-rm paraguay-latest.osm.pbf
-
 wget -c https://download.geofabrik.de/south-america/peru-latest.osm.pbf
 osmconvert peru-latest.osm.pbf --drop-author --drop-version --out-osm -o=peru.osm
 rm peru-latest.osm.pbf
