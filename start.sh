@@ -181,7 +181,7 @@ rm sierra-leone-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/somalia-latest.osm.pbf
 osmconvert somalia-latest.osm.pbf --drop-author --drop-version --out-osm -o=somalia.osm
-rm somalia.osm.pbf
+rm somalia-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/south-africa-latest.osm.pbf
 osmconvert south-africa-latest.osm.pbf --drop-author --drop-version --out-osm -o=south-africa.osm
