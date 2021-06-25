@@ -139,11 +139,11 @@ wget -c http://download.geofabrik.de/africa/mauritius-latest.osm.pbf
 osmconvert mauritius-latest.osm.pbf --drop-author --drop-version --out-osm -o=mauritius.osm
 rm mauritius-latest.osm.pbf
 
-wget -c http://download.geofabrik.de/africa/morocco.html
+wget -c http://download.geofabrik.de/africa/morocco-latest.osm.pbf
 osmconvert morocco-latest.osm.pbf --drop-author --drop-version --out-osm -o=morocco.osm
 rm morocco-latest.osm.pbf
 
-wget -c http://download.geofabrik.de/africa/mozambique.html
+wget -c http://download.geofabrik.de/africa/mozambique-latest.osm.pbf
 osmconvert mozambique-latest.osm.pbf --drop-author --drop-version --out-osm -o=mozambique.osm
 rm mozambique-latest.osm.pbf
 
