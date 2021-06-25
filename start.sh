@@ -230,10 +230,157 @@ rm antarctica-latest.osm.pbf
 
 #Asia
 
+wget -c http://download.geofabrik.de/asia/afghanistan-latest.osm.pbf
+osmconvert afghanistan-latest.osm.pbf --drop-author --drop-version --out-osm -o=afghanistan.osm
+rm afghanistan-latest.osm.pbf
 
+wget -c http://download.geofabrik.de/asia/armenia-latest.osm.pbf
+osmconvert armenia-latest.osm.pbf --drop-author --drop-version --out-osm -o=armenia.osm
+rm armenia-latest.osm.pbf
 
+wget -c http://download.geofabrik.de/asia/azerbaijan-latest.osm.pbf
+osmconvert azerbaijan-latest.osm.pbf --drop-author --drop-version --out-osm -o=azerbaijan.osm
+rm azerbaijan-latest.osm.pbf
 
+wget -c http://download.geofabrik.de/asia/bangladesh-latest.osm.pbf
+osmconvert bangladesh-latest.osm.pbf --drop-author --drop-version --out-osm -o=bangladesh.osm
+rm bangladesh-latest.osm.pbf
 
+wget -c http://download.geofabrik.de/asia/bhutan-latest.osm.pbf
+osmconvert bhutan-latest.osm.pbf --drop-author --drop-version --out-osm -o=bhutan.osm
+rm bhutan-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/cambodia-latest.osm.pbf
+osmconvert cambodia-latest.osm.pbf --drop-author --drop-version --out-osm -o=cambodia.osm
+rm cambodia-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/china-latest.osm.pbf
+osmconvert china-latest.osm.pbf --drop-author --drop-version --out-osm -o=china.osm
+rm china-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/gcc-states-latest.osm.pbf
+osmconvert gcc-states-latest.osm.pbf --drop-author --drop-version --out-osm -o=gcc-states.osm
+rm gcc-states-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/india-latest.osm.pbf
+osmconvert india-latest.osm.pbf --drop-author --drop-version --out-osm -o=india.osm
+rm india-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/indonesia-latest.osm.pbf
+osmconvert indonesia-latest.osm.pbf --drop-author --drop-version --out-osm -o=indonesia.osm
+rm indonesia-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/iran-latest.osm.pbf
+osmconvert iran-latest.osm.pbf --drop-author --drop-version --out-osm -o=iran.osm
+rm iran-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/iraq-latest.osm.pbf
+osmconvert iraq-latest.osm.pbf --drop-author --drop-version --out-osm -o=iraq.osm
+rm iraq-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/israel-and-palestine-latest.osm.pbf
+osmconvert israel-and-palestine-latest.osm.pbf --drop-author --drop-version --out-osm -o=israel-and-palestine.osm
+rm israel-and-palestine-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/japan-latest.osm.pbf
+osmconvert japan-latest.osm.pbf --drop-author --drop-version --out-osm -o=japan.osm
+rm japan-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/jordan-latest.osm.pbf
+osmconvert jordan-latest.osm.pbf --drop-author --drop-version --out-osm -o=jordan.osm
+rm jordan-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/kazakhstan-latest.osm.pbf
+osmconvert /kazakhstan-latest.osm.pbf --drop-author --drop-version --out-osm -o=/kazakhstan.osm
+rm /kazakhstan-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/kyrgyzstan-latest.osm.pbf
+osmconvert kyrgyzstan-latest.osm.pbf --drop-author --drop-version --out-osm -o=kyrgyzstan.osm
+rm kyrgyzstan-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/laos-latest.osm.pbf
+osmconvert laos-latest.osm.pbf --drop-author --drop-version --out-osm -o=laos.osm
+rm laos-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/lebanon-latest.osm.pbf
+osmconvert lebanon-latest.osm.pbf --drop-author --drop-version --out-osm -o=lebanon.osm
+rm lebanon-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/malaysia-singapore-brunei-latest.osm.pbf
+osmconvert malaysia-singapore-brunei-latest.osm.pbf --drop-author --drop-version --out-osm -o=malaysia-singapore-brunei.osm
+rm malaysia-singapore-brunei-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/maldives-latest.osm.pbf
+osmconvert maldives-latest.osm.pbf --drop-author --drop-version --out-osm -o=maldives.osm
+rm maldives-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/mongolia-latest.osm.pbf
+osmconvert mongolia-latest.osm.pbf --drop-author --drop-version --out-osm -o=mongolia.osm
+rm mongolia-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/myanmar-latest.osm.pbf
+osmconvert myanmar-latest.osm.pbf --drop-author --drop-version --out-osm -o=myanmar.osm
+rm myanmar-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/nepal-latest.osm.pbf
+osmconvert nepal-latest.osm.pbf --drop-author --drop-version --out-osm -o=nepal.osm
+rm nepal-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/north-korea-latest.osm.pbf
+osmconvert north-korea-latest.osm.pbf --drop-author --drop-version --out-osm -o=north-korea.osm
+rm north-korea-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/pakistan-latest.osm.pbf
+osmconvert pakistan-latest.osm.pbf --drop-author --drop-version --out-osm -o=pakistan.osm
+rm pakistan-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/philippines-latest.osm.pbf
+osmconvert philippines-latest.osm.pbf --drop-author --drop-version --out-osm -o=philippines.osm
+rm philippines-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/russia-latest.osm.pbf
+osmconvert russia-latest.osm.pbf --drop-author --drop-version --out-osm -o=russia.osm
+rm russia-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/south-korea-latest.osm.pbf
+osmconvert south-korea-latest.osm.pbf --drop-author --drop-version --out-osm -o=south-korea.osm
+rm south-korea-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/sri-lanka-latest.osm.pbf
+osmconvert sri-lanka-latest.osm.pbf --drop-author --drop-version --out-osm -o=sri-lanka.osm
+rm sri-lanka-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/syria-latest.osm.pbf
+osmconvert syria-latest.osm.pbf --drop-author --drop-version --out-osm -o=syria.osm
+rm syria-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/taiwan-latest.osm.pbf
+osmconvert taiwan-latest.osm.pbf --drop-author --drop-version --out-osm -o=taiwan.osm
+rm taiwan-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/tajikistan-latest.osm.pbf
+osmconvert tajikistan-latest.osm.pbf --drop-author --drop-version --out-osm -o=tajikistan.osm
+rm tajikistan-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/thailand-latest.osm.pbf
+osmconvert thailand-latest.osm.pbf --drop-author --drop-version --out-osm -o=thailand.osm
+rm thailand-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/turkmenistan-latest.osm.pbf
+osmconvert turkmenistan-latest.osm.pbf --drop-author --drop-version --out-osm -o=turkmenistan.osm
+rm turkmenistan-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/uzbekistan-latest.osm.pbf
+osmconvert uzbekistan-latest.osm.pbf --drop-author --drop-version --out-osm -o=uzbekistan.osm
+rm uzbekistan-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/vietnam-latest.osm.pbf
+osmconvert vietnam-latest.osm.pbf --drop-author --drop-version --out-osm -o=vietnam.osm
+rm vietnam-latest.osm.pbf
+
+wget -c http://download.geofabrik.de/asia/yemen-latest.osm.pbf
+osmconvert yemen-latest.osm.pbf --drop-author --drop-version --out-osm -o=yemen.osm
+rm yemen-latest.osm.pbf
 
 #Oceania
 wget -c http://download.geofabrik.de/australia-oceania-latest.osm.pbf
