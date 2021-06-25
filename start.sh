@@ -389,6 +389,201 @@ rm australia-oceania-latest.osm.pbf
 
 #Europe
 
+wget -c https://download.geofabrik.de/europe/albania-latest.osm.pbf
+osmconvert albania-latest.osm.pbf --drop-author --drop-version --out-osm -o=albania.osm
+rm albania-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/andorra-latest.osm.pbf
+osmconvert andorra-latest.osm.pbf --drop-author --drop-version --out-osm -o=andorra.osm
+rm andorra-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/austria-latest.osm.pbf
+osmconvert austria-latest.osm.pbf --drop-author --drop-version --out-osm -o=austria.osm
+rm austria-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/azores-latest.osm.pbf
+osmconvert azores-latest.osm.pbf --drop-author --drop-version --out-osm -o=azores.osm
+rm azores-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/belarus-latest.osm.pbf
+osmconvert belarus-latest.osm.pbf --drop-author --drop-version --out-osm -o=belarus.osm
+rm belarus-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/belgium-latest.osm.pbf
+osmconvert belgium-latest.osm.pbf --drop-author --drop-version --out-osm -o=belgium.osm
+rm belgium-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/bosnia-herzegovina-latest.osm.pbf
+osmconvert bosnia-herzegovina-latest.osm.pbf --drop-author --drop-version --out-osm -o=bosnia-herzegovina.osm
+rm bosnia-herzegovina-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/bulgaria-latest.osm.pbf
+osmconvert bulgaria-latest.osm.pbf --drop-author --drop-version --out-osm -o=bulgaria.osm
+rm bulgaria-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/croatia-latest.osm.pbf
+osmconvert croatia-latest.osm.pbf --drop-author --drop-version --out-osm -o=croatia.osm
+rm croatia-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/cyprus-latest.osm.pbf
+osmconvert cyprus-latest.osm.pbf --drop-author --drop-version --out-osm -o=cyprus.osm
+rm cyprus-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf
+osmconvert czech-republic-latest.osm.pbf --drop-author --drop-version --out-osm -o=czech-republic.osm
+rm czech-republic-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/denmark-latest.osm.pbf
+osmconvert denmark-latest.osm.pbf --drop-author --drop-version --out-osm -o=denmark.osm
+rm denmark-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/estonia-latest.osm.pbf
+osmconvert estonia-latest.osm.pbf --drop-author --drop-version --out-osm -o=estonia.osm
+rm estonia-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/faroe-islands-latest.osm.pbf
+osmconvert faroe-islands-latest.osm.pbf --drop-author --drop-version --out-osm -o=faroe-islands.osm
+rm faroe-islands-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/finland-latest.osm.pbf
+osmconvert finland-latest.osm.pbf --drop-author --drop-version --out-osm -o=finland.osm
+rm finland-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/france-latest.osm.pbf
+osmconvert france-latest.osm.pbf --drop-author --drop-version --out-osm -o=france.osm
+rm france-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/georgia-latest.osm.pbf
+osmconvert georgia-latest.osm.pbf --drop-author --drop-version --out-osm -o=georgia.osm
+rm georgia-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/germany-latest.osm.pbf
+osmconvert germany-latest.osm.pbf --drop-author --drop-version --out-osm -o=germany.osm
+rm germany-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/great-britain-latest.osm.pbf
+osmconvert great-britain-latest.osm.pbf --drop-author --drop-version --out-osm -o=great-britain.osm
+rm great-britain-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/greece-latest.osm.pbf
+osmconvert greece-latest.osm.pbf --drop-author --drop-version --out-osm -o=greece.osm
+rm greece-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/guernsey-jersey-latest.osm.pbf
+osmconvert guernsey-jersey-latest.osm.pbf --drop-author --drop-version --out-osm -o=guernsey-jersey.osm
+rm guernsey-jersey-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/hungary-latest.osm.pbf
+osmconvert hungary-latest.osm.pbf --drop-author --drop-version --out-osm -o=hungary.osm
+rm hungary-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/iceland-latest.osm.pbf
+osmconvert iceland-latest.osm.pbf --drop-author --drop-version --out-osm -o=iceland.osm
+rm iceland-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/ireland-and-northern-ireland-latest.osm.pbf
+osmconvert ireland-and-northern-ireland-latest.osm.pbf --drop-author --drop-version --out-osm -o=ireland-and-northern-ireland.osm
+rm ireland-and-northern-ireland-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/isle-of-man-latest.osm.pbf
+osmconvert isle-of-man-ireland-latest.osm.pbf --drop-author --drop-version --out-osm -o=isle-of-man.osm
+rm isle-of-man-latest.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/italy-latest.osm.pbf
+osmconvert italy-latest.osm.pbf --drop-author --drop-version --out-osm -o=italy.osm
+rm italy.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/kosovo-latest.osm.pbf
+osmconvert kosovo-latest.osm.pbf --drop-author --drop-version --out-osm -o=kosovo.osm
+rm kosovo.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/latvia-latest.osm.pbf
+osmconvert latvia-latest.osm.pbf --drop-author --drop-version --out-osm -o=latvia.osm
+rm latvia.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/liechtenstein-latest.osm.pbf
+osmconvert latvia-latest.osm.pbf --drop-author --drop-version --out-osm -o=latvia.osm
+rm latvia.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/lithuania-latest.osm.pbf
+osmconvert lithuania-latest.osm.pbf --drop-author --drop-version --out-osm -o=lithuania.osm
+rm lithuania.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/luxembourg-latest.osm.pbf
+osmconvert luxembourg-latest.osm.pbf --drop-author --drop-version --out-osm -o=luxembourg.osm
+rm luxembourg.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/macedonia-latest.osm.pbf
+osmconvert macedonia-latest.osm.pbf --drop-author --drop-version --out-osm -o=macedonia.osm
+rm macedonia.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/malta-latest.osm.pbf
+osmconvert malta-latest.osm.pbf --drop-author --drop-version --out-osm -o=malta.osm
+rm malta.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/moldova-latest.osm.pbf
+osmconvert moldova-latest.osm.pbf --drop-author --drop-version --out-osm -o=moldova.osm
+rm moldova.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/monaco-latest.osm.pbf
+osmconvert monaco-latest.osm.pbf --drop-author --drop-version --out-osm -o=monaco.osm
+rm monaco.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/montenegro-latest.osm.pbf
+osmconvert montenegro-latest.osm.pbf --drop-author --drop-version --out-osm -o=montenegro.osm
+rm montenegro.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/netherlands-latest.osm.pbf
+osmconvert netherlands-latest.osm.pbf --drop-author --drop-version --out-osm -o=netherlands.osm
+rm netherlands.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/norway-latest.osm.pbf
+osmconvert norway-latest.osm.pbf --drop-author --drop-version --out-osm -o=norway.osm
+rm norway.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/poland-latest.osm.pbf
+osmconvert poland-latest.osm.pbf --drop-author --drop-version --out-osm -o=poland.osm
+rm poland.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/portugal-latest.osm.pbf
+osmconvert portugal-latest.osm.pbf --drop-author --drop-version --out-osm -o=portugal.osm
+rm portugal.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/romania-latest.osm.pbf
+osmconvert romania-latest.osm.pbf --drop-author --drop-version --out-osm -o=romania.osm
+rm romania.osm.pbf
+
+wget -c https://download.geofabrik.de/russia-latest.osm.pbf
+osmconvert russia-latest.osm.pbf --drop-author --drop-version --out-osm -o=russia.osm
+rm russia.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/serbia-latest.osm.pbf
+osmconvert serbia-latest.osm.pbf --drop-author --drop-version --out-osm -o=serbia.osm
+rm serbia.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/slovakia-latest.osm.pbf
+osmconvert slovakia-latest.osm.pbf --drop-author --drop-version --out-osm -o=slovakia.osm
+rm slovakia.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/spain-latest.osm.pbf
+osmconvert spain-latest.osm.pbf --drop-author --drop-version --out-osm -o=spain.osm
+rm spain.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/sweden-latest.osm.pbf
+osmconvert sweden-latest.osm.pbf --drop-author --drop-version --out-osm -o=sweden.osm
+rm sweden.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/switzerland-latest.osm.pbf
+osmconvert switzerland-latest.osm.pbf --drop-author --drop-version --out-osm -o=switzerland.osm
+rm switzerland.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/turkey-latest.osm.pbf
+osmconvert turkey-latest.osm.pbf --drop-author --drop-version --out-osm -o=turkey.osm
+rm turkey.osm.pbf
+
+wget -c https://download.geofabrik.de/europe/ukraine-latest.osm.pbf
+osmconvert ukraine-latest.osm.pbf --drop-author --drop-version --out-osm -o=ukraine.osm
+rm ukraine.osm.pbf
 
 #North America
 
