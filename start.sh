@@ -37,7 +37,7 @@ rm cameroon-latest.osm.pbf
 
 wget -c https://download.geofabrik.de/africa/canary-islands-latest.osm.pbf
 osmconvert canary-islands-latest.osm.pbf --drop-author --drop-version --out-osm -o=canary-islands.osm
-rm /canary-islands-latest.osm.pbf
+rm canary-islands-latest.osm.pbf
 
 wget -c https://download.geofabrik.de/africa/cape-verde-latest.osm.pbf
 osmconvert cape-verde-latest.osm.pbf --drop-author --drop-version --out-osm -o=cape-verde.osm
@@ -177,7 +177,7 @@ rm seychelles-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/sierra-leone-latest.osm.pbf
 osmconvert sierra-leone-latest.osm.pbf --drop-author --drop-version --out-osm -o=sierra-leone.osm
-rm sierra-leone.osm.pbf
+rm sierra-leone-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/somalia-latest.osm.pbf
 osmconvert somalia-latest.osm.pbf --drop-author --drop-version --out-osm -o=somalia.osm
@@ -185,43 +185,43 @@ rm somalia.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/south-africa-latest.osm.pbf
 osmconvert south-africa-latest.osm.pbf --drop-author --drop-version --out-osm -o=south-africa.osm
-rm south-africa.osm.pbf
+rm south-africa-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/south-sudan-latest.osm.pbf
 osmconvert south-sudan-latest.osm.pbf --drop-author --drop-version --out-osm -o=south-sudan.osm
-rm south-sudan.osm.pbf
+rm south-sudan-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/sudan-latest.osm.pbf
 osmconvert sudan-latest.osm.pbf --drop-author --drop-version --out-osm -o=sudan.osm
-rm sudan.osm.pbf
+rm sudan-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/swaziland-latest.osm.pbf
 osmconvert swaziland-latest.osm.pbf --drop-author --drop-version --out-osm -o=swaziland.osm
-rm swaziland.osm.pbf
+rm swaziland-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/tanzania-latest.osm.pbf
 osmconvert tanzania-latest.osm.pbf --drop-author --drop-version --out-osm -o=tanzania.osm
-rm tanzania.osm.pbf
+rm tanzania-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/togo-latest.osm.pbf
 osmconvert togo-latest.osm.pbf --drop-author --drop-version --out-osm -o=togo.osm
-rm togo.osm.pbf
+rm togo-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/tunisia-latest.osm.pbf
 osmconvert tunisia-latest.osm.pbf --drop-author --drop-version --out-osm -o=tunisia.osm
-rm tunisia.osm.pbf
+rm tunisia-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/uganda-latest.osm.pbf
 osmconvert uganda-latest.osm.pbf --drop-author --drop-version --out-osm -o=uganda.osm
-rm uganda.osm.pbf
+rm uganda-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/zambia-latest.osm.pbf
 osmconvert zambia-latest.osm.pbf --drop-author --drop-version --out-osm -o=zambia.osm
-rm zambia.osm.pbf
+rm zambia-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/zimbabwe-latest.osm.pbf
 osmconvert zimbabwe-latest.osm.pbf --drop-author --drop-version --out-osm -o=zimbabwe.osm
-rm zimbabwe.osm.pbf
+rm zimbabwe-latest.osm.pbf
 
 #Antartica
 wget -c http://download.geofabrik.de/antarctica-latest.osm.pbf
@@ -292,7 +292,7 @@ rm jordan-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/asia/kazakhstan-latest.osm.pbf
 osmconvert /kazakhstan-latest.osm.pbf --drop-author --drop-version --out-osm -o=/kazakhstan.osm
-rm /kazakhstan-latest.osm.pbf
+rm kazakhstan-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/asia/kyrgyzstan-latest.osm.pbf
 osmconvert kyrgyzstan-latest.osm.pbf --drop-author --drop-version --out-osm -o=kyrgyzstan.osm
