@@ -34,15 +34,15 @@ if [ "$1" = "import" ]; then
     sudo -u postgres createdb -E UTF8 -O pgr routing
     sudo -u postgres psql -d routing -c "CREATE EXTENSION postgis;"
     sudo -u postgres psql -d routing -c "CREATE EXTENSION pgrouting;"
-    #sudo -u postgres createdb -E UTF8 -O pgr cars_routing
-    #sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION postgis;"
-    #sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION pgrouting;"
-    #sudo -u postgres createdb -E UTF8 -O pgr bicycles_routing
-    #sudo -u postgres psql -d bicycles_routing -c "CREATE EXTENSION postgis;"
-    #sudo -u postgres psql -d bicycles_routing -c "CREATE EXTENSION pgrouting;"
-    #sudo -u postgres createdb -E UTF8 -O pgr pedestrian_routing
-    #sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION postgis;"
-    #sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION pgrouting;" 
+    sudo -u postgres createdb -E UTF8 -O pgr cars_routing
+    sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION postgis;"
+    sudo -u postgres psql -d cars_routing -c "CREATE EXTENSION pgrouting;"
+    sudo -u postgres createdb -E UTF8 -O pgr bicycles_routing
+    sudo -u postgres psql -d bicycles_routing -c "CREATE EXTENSION postgis;"
+    sudo -u postgres psql -d bicycles_routing -c "CREATE EXTENSION pgrouting;"
+    sudo -u postgres createdb -E UTF8 -O pgr pedestrian_routing
+    sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION postgis;"
+    sudo -u postgres psql -d pedestrian_routing -c "CREATE EXTENSION pgrouting;" 
     setPostgresPassword
       
     # Import data
@@ -100,9 +100,7 @@ if [ "$1" = "import" ]; then
     osm2pgrouting --f /osm/uganda.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
     osm2pgrouting --f /osm/zambia.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
     osm2pgrouting --f /osm/zimbabwe.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index 
-    
     osm2pgrouting --f /osm/antarctica.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
-    
     osm2pgrouting --f /osm/afghanistan.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/armenia.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/azerbaijan.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
@@ -141,9 +139,7 @@ if [ "$1" = "import" ]; then
     osm2pgrouting --f /osm/uzbekistan-latest.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/vietnam-latest.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/yemen-latest.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
-    
     osm2pgrouting --f /osm/oceania.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
-    
     osm2pgrouting --f /osm/albania.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/andorra.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/austria.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
@@ -201,9 +197,7 @@ if [ "$1" = "import" ]; then
     osm2pgrouting --f /osm/us-pacific.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/us-south.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/us-west.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
-
     osm2pgrouting --f /osm/c_america.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
-    
     osm2pgrouting --f /osm/argentina.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/bolivia.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/brazil.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
@@ -216,15 +210,503 @@ if [ "$1" = "import" ]; then
     osm2pgrouting --f /osm/uruguay.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/venezuela.osm --conf mapconfig.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
         
-    #osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname bicycles_routing --clean
-    #osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname cars_routing --clean
-    #osm2pgrouting --f output_data_reduc.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname pedestrian_routing --clean
+    osm2pgrouting --f /osm/algeria.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --clean
+    osm2pgrouting --f /osm/angola.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/benin.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/botswana.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/burkina-faso.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index 
+    osm2pgrouting --f /osm/burundi.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/cameroon.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/canary-islands.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index   
+    osm2pgrouting --f /osm/cape-verde.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/central-african-republic.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/chad.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/comores.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/congo-brazzaville.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/congo-democratic-republic.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/djibouti.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/egypt.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/equatorial-guinea.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/eritrea.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ethiopia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/gabon.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ghana.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/guinea.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/guinea-bissau.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ivory-coast.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/kenya.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/lesotho.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/liberia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index 
+    osm2pgrouting --f /osm/libya.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index  
+    osm2pgrouting --f /osm/madagascar.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index  
+    osm2pgrouting --f /osm/malawi.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/mali.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/mauritania.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/mauritius.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/morocco.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/mozambique.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/namibia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/niger.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/nigeria.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/saint-helena-ascension-and-tristan-da-cunha.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sao-tome-and-principe.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/senegal-and-gambia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/seychelles.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sierra-leone.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/somalia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/south-africa.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/south-sudan.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sudan.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/swaziland.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/tanzania.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/togo.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/tunisia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/uganda.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/zambia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/zimbabwe.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index 
+    osm2pgrouting --f /osm/antarctica.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/afghanistan.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/armenia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/azerbaijan.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/bangladesh.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/bhutan.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/cambodia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/china.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/gcc-states.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/india.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/indonesia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/iran.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/iraq.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/israel-and-palestine.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/japan.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/jordan.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/kazakhstan.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/kyrgyzstan.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/laos.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/lebanon.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/malaysia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/maldives.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/mongolia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/myanmar.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/nepal.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/north-korea.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/pakistan.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/philippines.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/russia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/south-korea.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sri-lanka.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/syria-latest.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/taiwan-latest.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/tajikistan-latest.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/thailand-latest.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/turkmenistan-latest.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/uzbekistan-latest.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/vietnam-latest.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/yemen-latest.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/oceania.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/albania.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/andorra.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/austria.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/azores.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/belarus.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/belgium.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/bosnia-herzegovina.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/bulgaria.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/croatia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/cyprus.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/czech.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/denmark.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/estonia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/faroe-islands.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/finland.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/france.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/georgia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/germany.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/great-britain.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/greece.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/guernsey-jersey.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/hungary.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/iceland.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ireland-and-northern-ireland.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/isle-of-man-latest.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/italy.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/kosovo.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/latvia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/liechtenstein.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/lithuania.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/luxembourg.osm --conf mapconfig_for_bicycles_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/macedonia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/malta.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/moldova.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/monaco.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/montenegro.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/netherlands.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/norway.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/poland.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/portugal.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/romania.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/russia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/serbia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/slovakia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/spain.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sweden.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/switzerland.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/turkey.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ukraine.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/canada.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/greenland.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/mexico.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/us-midwest-latest.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/us-northeast.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/us-pacific.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/us-south.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/us-west.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/c_america.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/argentina.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/bolivia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/brazil.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/chile.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/colombia.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ecuador.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/paraguay.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/peru.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/suriname.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/uruguay.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/venezuela.osm --conf mapconfig_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    
+    osm2pgrouting --f /osm/algeria.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --clean
+    osm2pgrouting --f /osm/angola.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/benin.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/botswana.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/burkina-faso.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index 
+    osm2pgrouting --f /osm/burundi.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/cameroon.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/canary-islands.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index   
+    osm2pgrouting --f /osm/cape-verde.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/central-african-republic.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/chad.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/comores.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/congo-brazzaville.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/congo-democratic-republic.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/djibouti.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/egypt.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/equatorial-guinea.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/eritrea.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ethiopia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/gabon.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ghana.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/guinea.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/guinea-bissau.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ivory-coast.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/kenya.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/lesotho.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/liberia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index 
+    osm2pgrouting --f /osm/libya.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index  
+    osm2pgrouting --f /osm/madagascar.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index  
+    osm2pgrouting --f /osm/malawi.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/mali.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/mauritania.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/mauritius.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/morocco.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/mozambique.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/namibia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/niger.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/nigeria.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/saint-helena-ascension-and-tristan-da-cunha.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sao-tome-and-principe.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/senegal-and-gambia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/seychelles.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sierra-leone.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/somalia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/south-africa.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/south-sudan.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sudan.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/swaziland.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/tanzania.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/togo.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/tunisia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/uganda.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/zambia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/zimbabwe.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index 
+    osm2pgrouting --f /osm/antarctica.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/afghanistan.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/armenia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/azerbaijan.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/bangladesh.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/bhutan.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/cambodia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/china.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/gcc-states.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/india.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/indonesia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/iran.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/iraq.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/israel-and-palestine.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/japan.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/jordan.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/kazakhstan.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/kyrgyzstan.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/laos.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/lebanon.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/malaysia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/maldives.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/mongolia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/myanmar.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/nepal.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/north-korea.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/pakistan.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/philippines.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/russia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/south-korea.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sri-lanka.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/syria-latest.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/taiwan-latest.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/tajikistan-latest.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/thailand-latest.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/turkmenistan-latest.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/uzbekistan-latest.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/vietnam-latest.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/yemen-latest.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/oceania.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/albania.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/andorra.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/austria.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/azores.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/belarus.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/belgium.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/bosnia-herzegovina.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/bulgaria.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/croatia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/cyprus.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/czech.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/denmark.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/estonia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/faroe-islands.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/finland.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/france.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/georgia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/germany.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/great-britain.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/greece.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/guernsey-jersey.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/hungary.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/iceland.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ireland-and-northern-ireland.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/isle-of-man-latest.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/italy.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/kosovo.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/latvia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/liechtenstein.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/lithuania.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/luxembourg.osm --conf mapconfig_for_cars_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/macedonia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/malta.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/moldova.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/monaco.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/montenegro.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/netherlands.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/norway.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/poland.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/portugal.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/romania.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/russia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/serbia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/slovakia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/spain.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sweden.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/switzerland.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/turkey.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ukraine.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/canada.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/greenland.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/mexico.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/us-midwest-latest.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/us-northeast.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/us-pacific.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/us-south.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/us-west.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/c_america.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/argentina.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/bolivia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/brazil.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/chile.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/colombia.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ecuador.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/paraguay.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/peru.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/suriname.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/uruguay.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/venezuela.osm --conf mapconfig_for_cars.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    
+    osm2pgrouting --f /osm/algeria.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --clean
+    osm2pgrouting --f /osm/angola.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/benin.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/botswana.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/burkina-faso.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index 
+    osm2pgrouting --f /osm/burundi.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/cameroon.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/canary-islands.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index   
+    osm2pgrouting --f /osm/cape-verde.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/central-african-republic.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/chad.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/comores.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/congo-brazzaville.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/congo-democratic-republic.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/djibouti.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/egypt.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/equatorial-guinea.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/eritrea.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ethiopia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/gabon.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ghana.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/guinea.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/guinea-bissau.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ivory-coast.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/kenya.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/lesotho.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/liberia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index 
+    osm2pgrouting --f /osm/libya.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index  
+    osm2pgrouting --f /osm/madagascar.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index  
+    osm2pgrouting --f /osm/malawi.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/mali.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/mauritania.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/mauritius.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/morocco.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/mozambique.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/namibia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/niger.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/nigeria.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/saint-helena-ascension-and-tristan-da-cunha.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sao-tome-and-principe.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/senegal-and-gambia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/seychelles.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sierra-leone.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/somalia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/south-africa.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/south-sudan.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sudan.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/swaziland.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/tanzania.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/togo.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/tunisia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/uganda.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/zambia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index    
+    osm2pgrouting --f /osm/zimbabwe.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index 
+    osm2pgrouting --f /osm/antarctica.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/afghanistan.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/armenia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/azerbaijan.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/bangladesh.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/bhutan.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/cambodia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/china.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/gcc-states.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/india.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/indonesia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/iran.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/iraq.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/israel-and-palestine.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/japan.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/jordan.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/kazakhstan.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/kyrgyzstan.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/laos.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/lebanon.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/malaysia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/maldives.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/mongolia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/myanmar.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/nepal.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/north-korea.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/pakistan.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/philippines.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/russia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/south-korea.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sri-lanka.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/syria-latest.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/taiwan-latest.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/tajikistan-latest.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/thailand-latest.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/turkmenistan-latest.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/uzbekistan-latest.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/vietnam-latest.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/yemen-latest.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/oceania.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/albania.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/andorra.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/austria.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/azores.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/belarus.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/belgium.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/bosnia-herzegovina.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/bulgaria.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/croatia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/cyprus.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/czech.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/denmark.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/estonia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/faroe-islands.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/finland.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/france.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/georgia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/germany.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/great-britain.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/greece.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/guernsey-jersey.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/hungary.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/iceland.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ireland-and-northern-ireland.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/isle-of-man-latest.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/italy.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/kosovo.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/latvia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/liechtenstein.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/lithuania.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/luxembourg.osm --conf mapconfig_for_pedestrian_for_bicycles.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/macedonia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/malta.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/moldova.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/monaco.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/montenegro.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/netherlands.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/norway.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/poland.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/portugal.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/romania.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/russia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/serbia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/slovakia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/spain.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/sweden.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/switzerland.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/turkey.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ukraine.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/canada.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/greenland.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/mexico.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/us-midwest-latest.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/us-northeast.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/us-pacific.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/us-south.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/us-west.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/c_america.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/argentina.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/bolivia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/brazil.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/chile.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/colombia.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/ecuador.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/paraguay.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/peru.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/suriname.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/uruguay.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
+    osm2pgrouting --f /osm/venezuela.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     
     # Create indexes
-    #sudo -u postgres psql -d routing -f indexes.sql
-    #sudo -u postgres psql -d bicycles_routing -f indexes.sql
-    #sudo -u postgres psql -d cars_routing -f indexes.sql
-    #sudo -u postgres psql -d pedestrian_routing -f indexes.sql
+    sudo -u postgres psql -d routing -f indexes.sql
+    sudo -u postgres psql -d bicycles_routing -f indexes.sql
+    sudo -u postgres psql -d cars_routing -f indexes.sql
+    sudo -u postgres psql -d pedestrian_routing -f indexes.sql
     
     exit 0
 fi
