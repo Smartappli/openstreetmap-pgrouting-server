@@ -1,36 +1,74 @@
--- Calculate topology
-ALTER TABLE ways ADD COLUMN "source" integer;
-ALTER TABLE ways ADD COLUMN "target" integer;
-CREATE INDEX source_idx ON ways("source");
-CREATE INDEX target_idx ON ways("target");
+ALTER TABLE edge_table
+    ADD COLUMN source integer,
+    ADD COLUMN target integer,
+    ADD COLUMN cost_len double precision,
+    ADD COLUMN cost_time double precision,
+    ADD COLUMN rcost_len double precision,
+    ADD COLUMN rcost_time double precision,
+    ADD COLUMN x1 double precision,
+    ADD COLUMN y1 double precision,
+    ADD COLUMN x2 double precision,
+    ADD COLUMN y2 double precision,
+    ADD COLUMN to_cost double precision,
+    ADD COLUMN rule text,
+    ADD COLUMN isolated integer;
 
--- Run topology function
-SELECT assign_vertex_id('ways', 0.00001, 'the_geom', 'gid');
-CREATE INDEX ways_class_idx ON ways (class_id);
-CREATE INDEX classes_idx ON classes (id);
+SELECT pgr_createTopology('edge_table', 0.000001, 'the_geom', 'id');
 
--- Dijkstra
-ALTER TABLE ways ADD COLUMN reverse_cost double precision;
-UPDATE ways SET reverse_cost = length;
+UPDATE edge_table SET x1 = st_x(st_startpoint(the_geom)),
+                      y1 = st_y(st_startpoint(the_geom)),
+                      x2 = st_x(st_endpoint(the_geom)),
+                      y2 = st_y(st_endpoint(the_geom)),
+  cost_len  = st_length_spheroid(the_geom, 'SPHEROID["WGS84",6378137,298.25728]'),
+  rcost_len = st_length_spheroid(the_geom, 'SPHEROID["WGS84",6378137,298.25728]'),
+  len_km = st_length_spheroid(the_geom, 'SPHEROID["WGS84",6378137,298.25728]')/1000.0,
+  len_miles = st_length_spheroid(the_geom, 'SPHEROID["WGS84",6378137,298.25728]')
+              / 1000.0 * 0.6213712,
+  speed_mph = CASE WHEN fcc='A10' THEN 65
+                   WHEN fcc='A15' THEN 65
+                   WHEN fcc='A20' THEN 55
+                   WHEN fcc='A25' THEN 55
+                   WHEN fcc='A30' THEN 45
+                   WHEN fcc='A35' THEN 45
+                   WHEN fcc='A40' THEN 35
+                   WHEN fcc='A45' THEN 35
+                   WHEN fcc='A50' THEN 25
+                   WHEN fcc='A60' THEN 25
+                   WHEN fcc='A61' THEN 25
+                   WHEN fcc='A62' THEN 25
+                   WHEN fcc='A64' THEN 25
+                   WHEN fcc='A70' THEN 15
+                   WHEN fcc='A69' THEN 10
+                   ELSE null END,
+  speed_kmh = CASE WHEN fcc='A10' THEN 104
+                   WHEN fcc='A15' THEN 104
+                   WHEN fcc='A20' THEN 88
+                   WHEN fcc='A25' THEN 88
+                   WHEN fcc='A30' THEN 72
+                   WHEN fcc='A35' THEN 72
+                   WHEN fcc='A40' THEN 56
+                   WHEN fcc='A45' THEN 56
+                   WHEN fcc='A50' THEN 40
+                   WHEN fcc='A60' THEN 50
+                   WHEN fcc='A61' THEN 40
+                   WHEN fcc='A62' THEN 40
+                   WHEN fcc='A64' THEN 40
+                   WHEN fcc='A70' THEN 25
+                   WHEN fcc='A69' THEN 15
+                   ELSE null END;
 
--- A-star
-ALTER TABLE ways ADD COLUMN x1 double precision;
-ALTER TABLE ways ADD COLUMN y1 double precision;
-ALTER TABLE ways ADD COLUMN x2 double precision;
-ALTER TABLE ways ADD COLUMN y2 double precision;
+-- UPDATE the cost information based on oneway streets
 
-UPDATE ways SET x1 = x(ST_startpoint(the_geom));
-UPDATE ways SET y1 = y(ST_startpoint(the_geom));
+UPDATE edge_table SET
+    cost_time = CASE
+        WHEN one_way='TF' THEN 10000.0
+        ELSE cost_len/1000.0/speed_kmh::numeric*3600.0
+        END,
+    rcost_time = CASE
+        WHEN one_way='FT' THEN 10000.0
+        ELSE cost_len/1000.0/speed_kmh::numeric*3600.0
+        END;
 
-UPDATE ways SET x2 = x(ST_endpoint(the_geom));
-UPDATE ways SET y2 = y(ST_endpoint(the_geom));
+-- clean up the database because we have updated a lot of records
 
-UPDATE ways SET x1 = x(ST_PointN(the_geom, 1));
-UPDATE ways SET y1 = y(ST_PointN(the_geom, 1));
-
-UPDATE ways SET x2 = x(ST_PointN(the_geom, ST_NumPoints(the_geom)));
-UPDATE ways SET y2 = y(ST_PointN(the_geom, ST_NumPoints(the_geom)));
-
--- Shooting-Star
-ALTER TABLE ways ADD COLUMN to_cost double precision;
-ALTER TABLE ways ADD COLUMN rule text;
+VACUUM ANALYZE VERBOSE edge_table;
