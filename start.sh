@@ -486,7 +486,7 @@ osmconvert ireland-and-northern-ireland-latest.osm.pbf --drop-author --drop-vers
 rm ireland-and-northern-ireland-latest.osm.pbf
 
 wget -c https://download.geofabrik.de/europe/isle-of-man-latest.osm.pbf
-osmconvert isle-of-man-ireland-latest.osm.pbf --drop-author --drop-version --out-osm -o=isle-of-man.osm
+osmconvert isle-of-man-latest.osm.pbf --drop-author --drop-version --out-osm -o=isle-of-man.osm
 rm isle-of-man-latest.osm.pbf
 
 wget -c https://download.geofabrik.de/europe/italy-latest.osm.pbf
