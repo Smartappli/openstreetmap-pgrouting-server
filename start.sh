@@ -519,7 +519,7 @@ rm macedonia-latest.osm.pbf
 
 wget -c https://download.geofabrik.de/europe/malta-latest.osm.pbf
 osmconvert malta-latest.osm.pbf --drop-author --drop-version --out-osm -o=malta.osm
-rm malta.osm-latest.pbf
+rm malta-latest.osm-latest.pbf
 
 wget -c https://download.geofabrik.de/europe/moldova-latest.osm.pbf
 osmconvert moldova-latest.osm.pbf --drop-author --drop-version --out-osm -o=moldova.osm
