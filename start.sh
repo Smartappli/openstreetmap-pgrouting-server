@@ -609,7 +609,7 @@ rm us-northeast-latest.osm.pbf
 
 wget -c https://download.geofabrik.de/north-america/us-pacific-latest.osm.pbf
 osmconvert us-pacific-latest.osm.pbf --drop-author --drop-version --out-osm -o=us-pacific.osm
-rm us-pacific.osm.pbf
+rm us-pacific-latest.osm.pbf
 
 wget -c https://download.geofabrik.de/north-america/us-south-latest.osm.pbf
 osmconvert us-south-latest.osm.pbf --drop-author --drop-version --out-osm -o=us-south.osm
