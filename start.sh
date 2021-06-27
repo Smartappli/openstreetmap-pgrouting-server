@@ -152,7 +152,7 @@ osmconvert namibia-latest.osm.pbf --drop-author --drop-version --out-osm -o=nami
 rm namibia-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/niger-latest.osm.pbf
-osmconvert namibia-latest.osm.pbf --drop-author --drop-version --out-osm -o=niger.osm
+osmconvert niger-latest.osm.pbf --drop-author --drop-version --out-osm -o=niger.osm
 rm niger-latest.osm.pbf
 
 wget -c http://download.geofabrik.de/africa/nigeria-latest.osm.pbf
@@ -502,7 +502,7 @@ osmconvert latvia-latest.osm.pbf --drop-author --drop-version --out-osm -o=latvi
 rm latvia-latest.osm.pbf
 
 wget -c https://download.geofabrik.de/europe/liechtenstein-latest.osm.pbf
-osmconvert latvia-latest.osm.pbf --drop-author --drop-version --out-osm -o=latvia.osm
+osmconvert liechtenstein-latest.osm.pbf --drop-author --drop-version --out-osm -o=liechtenstein.osm
 rm liechtenstein-latest.osm.pbf
 
 wget -c https://download.geofabrik.de/europe/lithuania-latest.osm.pbf
