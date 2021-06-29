@@ -702,8 +702,6 @@ if [ "$1" = "import" ]; then
     osm2pgrouting --f /osm/uruguay.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     osm2pgrouting --f /osm/venezuela.osm --conf mapconfig_for_pedestrian.xml -U pgr -W ${PGPASSWORD:-pgr} --dbname routing --no-index
     
-    rm /osm/*.osm
-    
     # Create indexes
     sudo -u postgres psql -d routing -f indexes.sql
     sudo -u postgres psql -d bicycles_routing -f indexes.sql
