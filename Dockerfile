@@ -63,6 +63,7 @@ RUN apt-get install -y --no-install-recommends \
   postgresql-contrib-${POSTGRESQL_VERSION} \
   postgresql-server-dev-${POSTGRESQL_VERSION} \
   protobuf-c-compiler \
+  python-is-python3 \
   python3-lxml \
   python3-psycopg2 \
   python3-shapely \
